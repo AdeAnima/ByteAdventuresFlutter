@@ -2,7 +2,9 @@ import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -13,6 +15,11 @@ import 'package:byte_adventures/presentation/widgets/mascot_animation.dart';
 import 'package:byte_adventures/infrastructure/helpers.dart';
 
 void main() {
+  LicenseRegistry.addLicense(() async* {
+    final license = await rootBundle.loadString('google_fonts/OFL.txt');
+    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
+  });
+
   setPathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
   Firebase.initializeApp();

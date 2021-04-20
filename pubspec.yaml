@@ -36,5 +36,6 @@ flutter:
   assets:
     - assets/images/
     - assets/animations/mascot.riv
+    - google_fonts/
 flutter_intl:
   enabled: true
