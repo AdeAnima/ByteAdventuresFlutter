@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base href="/">
+  <title>ByteAdventures2021</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" type="text/css" href="splash-style.css">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Topics that drive the people building our world">
+  <meta name="application-name" content="B8+ 2021">
+  <meta name="apple-mobile-web-app-title" content="B8+ 2021">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <meta name="theme-color" content="#282C34">
+  <meta name="msapplication-navbutton-color" content="#282C34">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="msapplication-starturl" content="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" type="image/png" sizes="72x72" href="icons/icon-72x72.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="72x72" href="icons/icon-72x72.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="icons/icon-96x96.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="96x96" href="icons/icon-96x96.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="icons/icon-128x128.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="128x128" href="icons/icon-128x128.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="icons/icon-144x144.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="144x144" href="icons/icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="152x152" href="icons/icon-152x152.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="152x152" href="icons/icon-152x152.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="384x384" href="icons/icon-384x384.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="384x384" href="icons/icon-384x384.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512x512.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="512x512" href="icons/icon-512x512.png">
+
+  <!-- JS Lib imports -->
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
+
+  <!-- Firebase app init -->
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyA63z94GYZaqh3vQpeA8xMFL3SASEoFe4Q",
+      authDomain: "b8adventures.firebaseapp.com",
+      projectId: "b8adventures",
+      storageBucket: "b8adventures.appspot.com",
+      messagingSenderId: "375667152718",
+      appId: "1:375667152718:web:ce3b646bb749890550f01f",
+      measurementId: "G-15FYR6RSYJ"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+</head>
+
+<body>
+  <img src="icons/logo.png" class="center logo_animation splash_logo" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('flutter-first-frame', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js');
+      });
+    }
+  </script>
+  <script src="main.dart.js" type="application/javascript"></script>
+</body>
+
+</html>

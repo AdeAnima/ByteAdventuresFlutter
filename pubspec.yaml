@@ -1,0 +1,33 @@
+name: byte_adventures
+description: This is the project for the B8+ conference website
+
+publish_to: "none"
+
+version: 0.0.1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  url_strategy: ^0.2.0-nullsafety.0
+  rive: ^0.7.1
+  auto_size_text: ^3.0.0-nullsafety.0
+  font_awesome_flutter: ^9.0.0
+  url_launcher: ^6.0.3
+  firebase_analytics: ^8.0.0
+  firebase_core: ^1.0.3
+  google_fonts: ^2.0.0
+
+dev_dependencies:
+  build_runner: ^1.10.3
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/animations/mascot.riv

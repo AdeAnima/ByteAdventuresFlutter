@@ -1,0 +1,29 @@
+html,
+body {
+    background-color: #000000
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) scale(0.3)
+}
+
+.logo_animation {
+  animation: logo-pulse 3.0s infinite ease;
+}
+
+@keyframes logo-pulse {
+  0% {
+    opacity: 0.1
+  }
+  50% {  
+    opacity: 1.0
+  }
+  100% {
+    opacity: 0.1
+  }
+}
