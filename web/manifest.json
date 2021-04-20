@@ -7,6 +7,15 @@
     "display": "standalone",
     "orientation": "portrait",
     "theme_color": "#282C34",
+    "categories": [
+        "education",
+        "entertainment",
+        "lifestyle",
+        "news",
+        "productivity",
+        "social",
+        "games"
+    ],
     "icons": [
         {
             "src": "icons/icon-72x72.png",
