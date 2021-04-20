@@ -20,28 +20,17 @@ class _MascotAnimationState extends State<MascotAnimation> {
   void initState() {
     super.initState();
 
-    // Load the animation file from the bundle, note that you could also
-    // download this. The RiveFile just expects a list of bytes.
     rootBundle.load('assets/animations/mascot.riv').then(
       (data) async {
-        // Load the RiveFile from the binary data.
         final file = RiveFile.import(data);
-
-        // The artboard is the root of the animation and gets drawn in the
-        // Rive widget.
-        final artboard = file.mainArtboard;
-        // Add a controller to play back a known animation on the main/default
-        // artboard. We store a reference to it so we can toggle playback.
-        artboard.addController(_controller = SimpleAnimation('Animation 1'));
+        final artboard = file.mainArtboard..addController(_controller = SimpleAnimation('Animation 1'));
         setState(() => _riveArtboard = artboard);
       },
     );
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: _riveArtboard == null ? const SizedBox() : Rive(artboard: _riveArtboard!),
-    );
-  }
+  Widget build(BuildContext context) => Center(
+        child: _riveArtboard == null ? const SizedBox() : Rive(artboard: _riveArtboard!),
+      );
 }
