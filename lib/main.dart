@@ -122,42 +122,6 @@ class _PageContentState extends State<PageContent> {
   }
 }
 
-class OrgaProfileInfos extends StatelessWidget {
-  const OrgaProfileInfos({
-    required this.windowHeight,
-    Key? key,
-  }) : super(key: key);
-
-  final double windowHeight;
-
-  @override
-  Widget build(BuildContext context) => SizedBox(
-        width: windowHeight * 0.4,
-        child: Column(
-          children: [
-            AutoSizeText(
-              'Marten Westphal',
-              style: Theme.of(context).textTheme.headline3!,
-              textAlign: TextAlign.left,
-            ),
-            const SizedBox(height: 8),
-            AutoSizeText(
-              'Co-Founder & CTO of the yamuntu GmbH',
-              style: Theme.of(context).textTheme.headline4!,
-              textAlign: TextAlign.left,
-            ),
-            const SizedBox(height: 8),
-            AutoSizeText(
-              'Martin Westphal is a Nerd by heart, loves challenges of any kind and is a firm believer that most people are capable of way more than they believe, if you give them the chance and encourage them. As the co-founder & CTO of the yamuntu GmbH, leader & co-founder of the byteAdventures Community, founder of the Hamburg Dart, Firebase and byteAdventures Meetups, he is trying to help people achieve more and believe in themselves, to create great things with technology.',
-              softWrap: true,
-              style: Theme.of(context).textTheme.headline6!,
-              textAlign: TextAlign.left,
-            ),
-          ],
-        ),
-      );
-}
-
 class OrgaProfileImage extends StatelessWidget {
   final String imagePath;
 
