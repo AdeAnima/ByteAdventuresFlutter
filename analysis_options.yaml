@@ -20,6 +20,9 @@ linter:
     #changed
     diagnostic_describe_all_properties: false
 
+    unsafe_html: false
+    undefined_prefixed_name: false
+
     empty_statements: true
     hash_and_equals: true
     #    invariant_booleans (experimental): true
@@ -34,9 +37,7 @@ linter:
     test_types_in_equals: true
     throw_in_finally: true
     unnecessary_statements: true
-    unrelated_type_equality_checks: true
-    unsafe_html: true
-    use_key_in_widget_constructors: true
+    unrelated_type_equality_checks: tru
     valid_regexps: true
 
     # ====================
