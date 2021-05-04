@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:byte_adventures/presentation/widgets/I_frame.dart';
 import 'package:byte_adventures/presentation/widgets/neon_decoration.dart';
+import 'package:byte_adventures/widgets/timer_widget.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -92,7 +93,8 @@ class _PageContentState extends State<PageContent> {
               child: Container(
                 margin: const EdgeInsets.all(24.0),
                 constraints: const BoxConstraints(maxWidth: 900, maxHeight: 700),
-                decoration: NeonDecoration.neonDecorationColor(context, decorationColor: Colors.white),
+                decoration:
+                    NeonDecoration.neonDecorationColor(context, decorationColor: Colors.white),
                 child: const Iframe(iframeUrl: 'https://tickets.byte-adventures.com/'),
               ),
             )
@@ -189,7 +191,8 @@ class SocialMediaIconRow extends StatelessWidget {
             IconButton(
                 icon: const FaIcon(FontAwesomeIcons.linkedin),
                 onPressed: () {
-                  openURL('https://www.linkedin.com/events/byteadventures-conference20216778733206616215553/');
+                  openURL(
+                      'https://www.linkedin.com/events/byteadventures-conference20216778733206616215553/');
                 }),
             IconButton(
                 icon: const FaIcon(FontAwesomeIcons.spotify),
@@ -291,9 +294,14 @@ class LandingPage extends StatelessWidget {
               ),
             ),
             const Spacer(flex: 4),
+            Center(
+              child: CountdownTimerWidget(
+                textStyle: Theme.of(context).textTheme.headline4!.resize(context),
+              ),
+            ),
             Flexible(
               child: Text(
-                'In Dev. For more infos, click below',
+                'Click here to get the ticket!',
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 style: Theme.of(context).textTheme.headline4!.resize(context),
