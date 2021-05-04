@@ -19,7 +19,7 @@ ThemeData get byteAdventuresTheme => ThemeData(
             textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, letterSpacing: 3.0)),
         headline6: GoogleFonts.firaCode(textStyle: const TextStyle(fontSize: 18, letterSpacing: 3.0)),
         bodyText1: GoogleFonts.firaCode(textStyle: const TextStyle(fontSize: 16)),
-        bodyText2: GoogleFonts.firaCode(textStyle: const TextStyle(fontSize: 14)),
+        bodyText2: GoogleFonts.firaCode(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w300)),
         caption: GoogleFonts.firaCode(textStyle: const TextStyle(fontSize: 12)),
       ),
     );
