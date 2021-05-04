@@ -1,5 +1,5 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:byte_adventures/infrastructure/static_speaker_repository.dart';
+import 'package:byte_adventures/presentation/helpers/size_sensitive_textstyle.dart';
 import 'package:byte_adventures/presentation/widgets/participant_card.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -17,11 +17,11 @@ class ParticipantsPage extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          AutoSizeText(
+          Text(
             'Speakers',
             textAlign: TextAlign.center,
             maxLines: 2,
-            style: windowHeight > 800 ? Theme.of(context).textTheme.headline4 : Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.headline4!.resize(context),
           ),
           Container(
             constraints: BoxConstraints(
