@@ -1,10 +1,8 @@
 import 'package:byte_adventures/generated/l10n.dart';
-import 'package:byte_adventures/presentation/helpers/size_sensitive_textstyle.dart';
 import 'package:byte_adventures/presentation/pages/landing_page.dart';
 import 'package:byte_adventures/presentation/pages/participants_page.dart';
+import 'package:byte_adventures/presentation/pages/tickets_page.dart';
 import 'package:byte_adventures/presentation/theme.dart';
-import 'package:byte_adventures/presentation/widgets/embeded_i_frame.dart';
-import 'package:byte_adventures/presentation/widgets/neon_decoration.dart';
 import 'package:byte_adventures/presentation/widgets/social_media_row.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -56,7 +54,6 @@ class PageContent extends StatefulWidget {
 
 class _PageContentState extends State<PageContent> {
   final _pageViewController = PageController();
-  int _currentPage = 0;
 
   @override
   void initState() {
@@ -66,16 +63,10 @@ class _PageContentState extends State<PageContent> {
   @override
   Widget build(BuildContext context) {
     final windowHeight = MediaQuery.of(context).size.height;
-    final windowWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       body: Stack(children: [
         PageView(
-          onPageChanged: (newPageIndex) {
-            setState(() {
-              _currentPage = newPageIndex;
-            });
-          },
           controller: _pageViewController,
           scrollDirection: Axis.vertical,
           children: [
@@ -86,25 +77,7 @@ class _PageContentState extends State<PageContent> {
                     duration: const Duration(milliseconds: 100), curve: Curves.easeInOut);
               },
             ),
-            Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'Tickets',
-                    textAlign: TextAlign.center,
-                    maxLines: 2,
-                    style: Theme.of(context).textTheme.headline1!.resize(context),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.all(24.0),
-                    constraints: const BoxConstraints(maxWidth: 900, maxHeight: 700),
-                    decoration: NeonDecoration.neonDecorationColor(context, decorationColor: Colors.white),
-                    child: const Iframe(iframeUrl: 'https://tickets.byte-adventures.com/'),
-                  ),
-                ],
-              ),
-            ),
+            const TicketsPage(),
             const ParticipantsPage(),
           ],
         ),
