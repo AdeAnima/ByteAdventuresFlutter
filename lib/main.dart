@@ -68,57 +68,55 @@ class _PageContentState extends State<PageContent> {
     final windowHeight = MediaQuery.of(context).size.height;
     final windowWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-        body: Stack(children: [
-      PageView(
-        controller: _pageViewController,
-        scrollDirection: Axis.vertical,
-        children: [
-          LandingPage(
-            windowHeight: windowHeight,
-            goDownCallback: () {
-              _pageViewController.animateToPage(1, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
-            },
-          ),
-        ],
-      ),
-      IgnorePointer(
-        child: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.transparent, Colors.black54],
-              begin: Alignment(0.0, 0.8),
-              end: Alignment.bottomCenter,
+      body: Stack(children: [
+        PageView(
+          controller: _pageViewController,
+          scrollDirection: Axis.vertical,
+          children: [
+            LandingPage(
+              windowHeight: windowHeight,
+              goDownCallback: () {
+                _pageViewController.animateToPage(1,
+                    duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+              },
+            ),
+          ],
+        ),
+        IgnorePointer(
+          child: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.transparent, Colors.black54],
+                begin: Alignment(0.0, 0.8),
+                end: Alignment.bottomCenter,
+              ),
             ),
           ),
         ),
-      ),
-      Align(
-        alignment: Alignment(windowWidth > 1000 ? -0.75 : -0.9, windowWidth > 1000 ? 0.1 : 0.25),
-        child: GestureDetector(
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) => AlertDialog(
-                title: AutoSizeText(
-                  S.of(context).iNeedAName,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6!,
+        Align(
+          alignment: Alignment(windowWidth > 1000 ? -0.75 : -0.9, windowWidth > 1000 ? 0.1 : 0.25),
+          child: GestureDetector(
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: AutoSizeText(
+                    S.of(context).iNeedAName,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headline6!,
+                  ),
                 ),
-              ),
-            );
-          },
-          child: SizedBox(
-            height: windowWidth > 1000 ? 300 : 150,
-            width: windowWidth > 1000 ? 300 : 150,
-            child: const MascotAnimation(),
+              );
+            },
+            child: SizedBox(
+              height: windowWidth > 1000 ? 300 : 150,
+              width: windowWidth > 1000 ? 300 : 150,
+              child: const MascotAnimation(),
+            ),
           ),
         ),
-      ),
-      Align(
-        alignment: Alignment(windowWidth > 600 ? 0.95 : 0.3, 0.95),
-        child: const SocialMediaIconRow(),
-      ),
-    ]));
+      ]),
+    );
   }
 }
 
@@ -205,7 +203,8 @@ class SocialMediaIconRow extends StatelessWidget {
             IconButton(
                 icon: const FaIcon(FontAwesomeIcons.linkedin),
                 onPressed: () {
-                  openURL('https://www.linkedin.com/events/byteadventures-conference20216778733206616215553/');
+                  openURL(
+                      'https://www.linkedin.com/events/byteadventures-conference20216778733206616215553/');
                 }),
             IconButton(
                 icon: const FaIcon(FontAwesomeIcons.spotify),
@@ -244,70 +243,80 @@ class LandingPage extends StatelessWidget {
             image: Image.asset('assets/images/background.png').image,
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image.asset(
-              'assets/images/logo.png',
-              height: windowHeight * 0.16,
-            ),
-            const SizedBox(height: 8),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: AutoSizeText(
-                'May 24th & 25th 2021',
-                style: Theme.of(context).textTheme.headline3!,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset(
+                'assets/images/logo.png',
+                height: windowHeight * 0.16,
+              ),
+              const SizedBox(height: 8),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: AutoSizeText(
+                  'May 24th & 25th 2021',
+                  style: Theme.of(context).textTheme.headline3!,
+                  maxLines: 1,
+                ),
+              ),
+              const SizedBox(height: 12),
+              AutoSizeText(
+                'ByteAdventures',
+                style: Theme.of(context).textTheme.headline1!,
                 maxLines: 1,
               ),
-            ),
-            const SizedBox(height: 12),
-            AutoSizeText(
-              'ByteAdventures',
-              style: Theme.of(context).textTheme.headline1!,
-              maxLines: 1,
-            ),
-            const SizedBox(height: 8),
-            AutoSizeText(
-              'Share your excitement.',
-              style: Theme.of(context).textTheme.headline4!,
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              group: subheaderTextsGroup,
-            ),
-            AutoSizeText(
-              'Shape the community.',
-              style: Theme.of(context).textTheme.headline4!,
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              group: subheaderTextsGroup,
-            ),
-            AutoSizeText(
-              'Join ByteAdventures.',
-              style: Theme.of(context).textTheme.headline4!,
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              group: subheaderTextsGroup,
-            ),
-            SizedBox(height: windowHeight * 0.24),
-            AutoSizeText(
-              'In Dev. For more infos, click below',
-              textAlign: TextAlign.center,
-              maxLines: 2,
-              style: Theme.of(context).textTheme.headline6!,
-            ),
-            IconButton(
-              tooltip: 'Check current website',
-              icon: const Icon(
-                // Icons.expand_more_outlined,
-                Icons.web_outlined,
-                size: 36,
+              const SizedBox(height: 8),
+              AutoSizeText(
+                'Share your excitement.',
+                style: windowHeight > 800
+                    ? Theme.of(context).textTheme.headline4!
+                    : Theme.of(context).textTheme.bodyText1,
+                textAlign: TextAlign.center,
+                group: subheaderTextsGroup,
               ),
-              onPressed: () {
-                openURL('https://byteadventuresconference2021.w.tame.events');
-              },
-            ),
-            SizedBox(height: windowHeight * 0.16),
-          ],
+              AutoSizeText(
+                'Shape the community.',
+                style: windowHeight > 800
+                    ? Theme.of(context).textTheme.headline4!
+                    : Theme.of(context).textTheme.bodyText1,
+                textAlign: TextAlign.center,
+                group: subheaderTextsGroup,
+              ),
+              AutoSizeText(
+                'Join ByteAdventures.',
+                style: windowHeight > 800
+                    ? Theme.of(context).textTheme.headline4!
+                    : Theme.of(context).textTheme.bodyText1,
+                textAlign: TextAlign.center,
+                group: subheaderTextsGroup,
+              ),
+              if (windowHeight > 800)
+                SizedBox(height: windowHeight * 0.40)
+              else
+                SizedBox(height: windowHeight * 0.30),
+              AutoSizeText(
+                'In Dev. For more infos, click below',
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                style: windowHeight > 800
+                    ? Theme.of(context).textTheme.headline4
+                    : Theme.of(context).textTheme.bodyText1,
+              ),
+              IconButton(
+                tooltip: 'Check current website',
+                icon: const Icon(
+                  // Icons.expand_more_outlined,
+                  Icons.web_outlined,
+                  size: 36,
+                ),
+                onPressed: () {
+                  openURL('https://byteadventuresconference2021.w.tame.events');
+                },
+              ),
+              const SocialMediaIconRow(),
+            ],
+          ),
         ),
       );
 }
