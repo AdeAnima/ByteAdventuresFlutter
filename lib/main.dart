@@ -1,9 +1,8 @@
-import 'dart:ui';
-
-import 'package:byte_adventures/presentation/helpers/size_sensitive_textstyle.dart';
+import 'package:byte_adventures/generated/l10n.dart';
 import 'package:byte_adventures/presentation/pages/landing_page.dart';
-import 'package:byte_adventures/presentation/widgets/I_frame.dart';
-import 'package:byte_adventures/presentation/widgets/neon_decoration.dart';
+import 'package:byte_adventures/presentation/pages/participants_page.dart';
+import 'package:byte_adventures/presentation/pages/tickets_page.dart';
+import 'package:byte_adventures/presentation/theme.dart';
 import 'package:byte_adventures/presentation/widgets/social_media_row.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -11,10 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:url_strategy/url_strategy.dart';
-import 'package:byte_adventures/generated/l10n.dart';
-
-import 'package:byte_adventures/presentation/theme.dart';
-import 'package:byte_adventures/presentation/widgets/mascot_animation.dart';
 
 void main() {
   LicenseRegistry.addLicense(() async* {
@@ -59,7 +54,6 @@ class PageContent extends StatefulWidget {
 
 class _PageContentState extends State<PageContent> {
   final _pageViewController = PageController();
-  int _currentPage = 0;
 
   @override
   void initState() {
@@ -69,15 +63,10 @@ class _PageContentState extends State<PageContent> {
   @override
   Widget build(BuildContext context) {
     final windowHeight = MediaQuery.of(context).size.height;
-    final windowWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Stack(children: [
         PageView(
-          onPageChanged: (newPageIndex) {
-            setState(() {
-              _currentPage = newPageIndex;
-            });
-          },
           controller: _pageViewController,
           scrollDirection: Axis.vertical,
           children: [
@@ -88,21 +77,8 @@ class _PageContentState extends State<PageContent> {
                     duration: const Duration(milliseconds: 100), curve: Curves.easeInOut);
               },
             ),
-            Column(
-              children: [
-                Flexible(
-                  child: Center(
-                    child: Container(
-                      margin: const EdgeInsets.all(24.0),
-                      constraints: const BoxConstraints(maxWidth: 900, maxHeight: 700),
-                      decoration: NeonDecoration.neonDecorationColor(context, decorationColor: Colors.white),
-                      child: const Iframe(iframeUrl: 'https://tickets.byte-adventures.com/'),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 32)
-              ],
-            )
+            const TicketsPage(),
+            const ParticipantsPage(),
           ],
         ),
         IgnorePointer(
@@ -116,32 +92,6 @@ class _PageContentState extends State<PageContent> {
             ),
           ),
         ),
-        if (_currentPage == 0)
-          AnimatedAlign(
-            duration: const Duration(seconds: 1),
-            alignment: _animatedMascotAlign(context, _currentPage),
-            child: GestureDetector(
-              onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    title: Text(
-                      S.of(context).iNeedAName,
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline6!.resize(context),
-                    ),
-                  ),
-                );
-              },
-              child: SizedBox(
-                height: windowWidth > 1000 ? 300 : 150,
-                width: windowWidth > 1000 ? 300 : 150,
-                child: const MascotAnimation(),
-              ),
-            ),
-          )
-        else
-          Container(),
         Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -158,13 +108,5 @@ class _PageContentState extends State<PageContent> {
         ),
       ]),
     );
-  }
-
-  Alignment _animatedMascotAlign(BuildContext context, int pageIndex) {
-    final windowWidth = MediaQuery.of(context).size.width;
-
-    return _currentPage == 0
-        ? Alignment(windowWidth > 1000 ? -0.75 : -0.9, windowWidth > 1000 ? 0.1 : 0.25)
-        : Alignment(windowWidth > 1000 ? -0.9 : -0.9, windowWidth > 1000 ? 0.8 : 0.8);
   }
 }

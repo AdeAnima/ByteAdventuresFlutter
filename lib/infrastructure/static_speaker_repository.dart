@@ -5,12 +5,11 @@ import 'package:byte_adventures/domain/platform_profile.dart';
 
 class StaticSpeakerRepository implements ISpeakerRepository {
   @override
-  List<Participant> get speakers => List.generate(
-        12,
-        (index) => Participant(
+  List<Participant> get speakers => [
+        Participant(
           firstName: 'Martin',
           lastName: 'Westphal',
-          shortBio: 'Something something somthing',
+          shortBio: 'Too busy to write anything about me in here :)',
           pictureUrl: Uri.parse('https://cdn.filestackcontent.com/VlsPVuGRfWqFQMxsBsKg'),
           firstSpeakerExperience: '',
           favoriteGame: 'Fallout 4',
@@ -32,5 +31,5 @@ class StaticSpeakerRepository implements ISpeakerRepository {
             )
           ],
         ),
-      );
+      ];
 }

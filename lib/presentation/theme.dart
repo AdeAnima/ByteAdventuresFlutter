@@ -8,6 +8,7 @@ ThemeData get byteAdventuresTheme => ThemeData(
       brightness: Brightness.dark,
       buttonColor: const Color(0xFFAF1CFE),
       shadowColor: const Color(0xFFF54B26),
+      scaffoldBackgroundColor: const Color(0xFF0F0F0F),
       textTheme: TextTheme(
         headline1: GoogleFonts.firaCode(textStyle: const TextStyle(fontSize: 48, letterSpacing: 3.0)),
         headline2: GoogleFonts.firaCode(
@@ -18,7 +19,7 @@ ThemeData get byteAdventuresTheme => ThemeData(
             textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, letterSpacing: 3.0)),
         headline6: GoogleFonts.firaCode(textStyle: const TextStyle(fontSize: 18, letterSpacing: 3.0)),
         bodyText1: GoogleFonts.firaCode(textStyle: const TextStyle(fontSize: 16)),
-        bodyText2: GoogleFonts.firaCode(textStyle: const TextStyle(fontSize: 14)),
+        bodyText2: GoogleFonts.firaCode(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w300)),
         caption: GoogleFonts.firaCode(textStyle: const TextStyle(fontSize: 12)),
       ),
     );
