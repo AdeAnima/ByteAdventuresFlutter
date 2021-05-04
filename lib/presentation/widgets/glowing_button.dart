@@ -1,3 +1,4 @@
+import 'package:byte_adventures/presentation/widgets/neon_glow_shadow.dart';
 import 'package:flutter/material.dart';
 
 class GlowingButton extends StatefulWidget {
@@ -45,34 +46,7 @@ class _GlowingButtonState extends State<GlowingButton> {
                 color2,
               ],
             ),
-            boxShadow: glowing
-                ? [
-                    BoxShadow(
-                      color: color1.withOpacity(0.6),
-                      spreadRadius: 1,
-                      blurRadius: 16,
-                      offset: const Offset(-8, 0),
-                    ),
-                    BoxShadow(
-                      color: color2.withOpacity(0.6),
-                      spreadRadius: 1,
-                      blurRadius: 16,
-                      offset: const Offset(8, 0),
-                    ),
-                    BoxShadow(
-                      color: color1.withOpacity(0.2),
-                      spreadRadius: 16,
-                      blurRadius: 32,
-                      offset: const Offset(-8, 0),
-                    ),
-                    BoxShadow(
-                      color: color2.withOpacity(0.2),
-                      spreadRadius: 16,
-                      blurRadius: 32,
-                      offset: const Offset(8, 0),
-                    )
-                  ]
-                : []),
+            boxShadow: glowing ? NeonGlowShadow.themeGlow(context) : []),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [Text(widget.buttonText, style: Theme.of(context).textTheme.button)],
