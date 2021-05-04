@@ -87,10 +87,10 @@ class _PageContentState extends State<PageContent> {
                 _pageViewController.animateToPage(1,
                     duration: const Duration(milliseconds: 100), curve: Curves.easeInOut);
               },
-            ),
+            )..build(context),
             Center(
               child: Container(
-                padding: const EdgeInsets.all(8.0),
+                margin: const EdgeInsets.all(24.0),
                 constraints: const BoxConstraints(maxWidth: 900, maxHeight: 700),
                 decoration: NeonDecoration.neonDecorationColor(context, decorationColor: Colors.white),
                 child: const Iframe(iframeUrl: 'https://tickets.byte-adventures.com/'),
@@ -117,10 +117,10 @@ class _PageContentState extends State<PageContent> {
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
-                  title: AutoSizeText(
+                  title: Text(
                     S.of(context).iNeedAName,
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headline6!,
+                    style: Theme.of(context).textTheme.headline6!.resize(context),
                   ),
                 ),
               );
@@ -132,6 +132,7 @@ class _PageContentState extends State<PageContent> {
             ),
           ),
         ),
+        const SocialMediaIconRow(),
       ]),
     );
   }
@@ -205,6 +206,19 @@ class SocialMediaIconRow extends StatelessWidget {
       );
 }
 
+extension SizeSensitiveTextStyle on TextStyle {
+  TextStyle resize(BuildContext context) {
+    final deviceWidth = MediaQuery.of(context).size.width;
+
+    if (deviceWidth < 270) return copyWith(fontSize: fontSize! * 0.3);
+    if (deviceWidth < 300) return copyWith(fontSize: fontSize! * 0.4);
+    if (deviceWidth < 360) return copyWith(fontSize: fontSize! * 0.5);
+    if (deviceWidth < 440) return copyWith(fontSize: fontSize! * 0.63);
+    if (deviceWidth < 510) return copyWith(fontSize: fontSize! * 0.75);
+    return this;
+  }
+}
+
 class LandingPage extends StatelessWidget {
   final VoidCallback goDownCallback;
   final double windowHeight;
@@ -227,60 +241,66 @@ class LandingPage extends StatelessWidget {
             image: Image.asset('assets/images/background.png').image,
           ),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Image.asset(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Flexible(
+              flex: 3,
+              child: Image.asset(
                 'assets/images/logo.png',
-                height: windowHeight * 0.16,
               ),
-              const SizedBox(height: 8),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                child: AutoSizeText(
-                  'May 24th & 25th 2021',
-                  style: Theme.of(context).textTheme.headline3!,
-                  maxLines: 1,
-                ),
-              ),
-              const SizedBox(height: 12),
-              AutoSizeText(
-                'ByteAdventures',
-                style: Theme.of(context).textTheme.headline1!,
+            ),
+            Flexible(
+              child: Text(
+                'May 24th & 25th 2021',
+                style: Theme.of(context).textTheme.headline3!.resize(context),
                 maxLines: 1,
+                textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 8),
-              AutoSizeText(
+            ),
+            Flexible(
+              child: Text(
+                'ByteAdventures',
+                style: Theme.of(context).textTheme.headline1!.resize(context),
+                maxLines: 3,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Flexible(
+              child: Text(
                 'Share your excitement.',
-                style:
-                    windowHeight > 800 ? Theme.of(context).textTheme.headline4! : Theme.of(context).textTheme.bodyText1,
+                maxLines: 1,
+                style: Theme.of(context).textTheme.headline4!.resize(context),
                 textAlign: TextAlign.center,
-                group: subheaderTextsGroup,
               ),
-              AutoSizeText(
+            ),
+            Flexible(
+              child: Text(
                 'Shape the community.',
-                style:
-                    windowHeight > 800 ? Theme.of(context).textTheme.headline4! : Theme.of(context).textTheme.bodyText1,
+                maxLines: 1,
+                style: Theme.of(context).textTheme.headline4!.resize(context),
                 textAlign: TextAlign.center,
-                group: subheaderTextsGroup,
               ),
-              AutoSizeText(
+            ),
+            Flexible(
+              child: Text(
                 'Join ByteAdventures.',
-                style:
-                    windowHeight > 800 ? Theme.of(context).textTheme.headline4! : Theme.of(context).textTheme.bodyText1,
+                maxLines: 1,
+                style: Theme.of(context).textTheme.headline4!.resize(context),
                 textAlign: TextAlign.center,
-                group: subheaderTextsGroup,
               ),
-              if (windowHeight > 800) SizedBox(height: windowHeight * 0.40) else SizedBox(height: windowHeight * 0.30),
-              AutoSizeText(
+            ),
+            const Spacer(flex: 4),
+            Flexible(
+              child: Text(
                 'In Dev. For more infos, click below',
                 textAlign: TextAlign.center,
                 maxLines: 2,
-                style:
-                    windowHeight > 800 ? Theme.of(context).textTheme.headline4 : Theme.of(context).textTheme.bodyText1,
+                style: Theme.of(context).textTheme.headline4!.resize(context),
               ),
-              IconButton(
+            ),
+            Flexible(
+              child: IconButton(
                 tooltip: 'Check current website',
                 icon: const Icon(
                   // Icons.expand_more_outlined,
@@ -291,9 +311,9 @@ class LandingPage extends StatelessWidget {
                   openURL('https://byteadventuresconference2021.w.tame.events');
                 },
               ),
-              const SocialMediaIconRow(),
-            ],
-          ),
+            ),
+            const Spacer(),
+          ],
         ),
       );
 }
