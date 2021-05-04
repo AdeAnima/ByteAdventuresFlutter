@@ -9,8 +9,7 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         Participant(
           firstName: 'Martin',
           lastName: 'Westphal',
-          shortBio:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+          shortBio: 'Too busy to write anything about me in here :)',
           pictureUrl: Uri.parse('https://cdn.filestackcontent.com/VlsPVuGRfWqFQMxsBsKg'),
           firstSpeakerExperience: '',
           favoriteGame: 'Fallout 4',
