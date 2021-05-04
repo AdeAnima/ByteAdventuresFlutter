@@ -21,7 +21,7 @@ class ParticipantsPage extends StatelessWidget {
             'Speakers',
             textAlign: TextAlign.center,
             maxLines: 2,
-            style: Theme.of(context).textTheme.headline4!.resize(context),
+            style: Theme.of(context).textTheme.headline1!.resize(context),
           ),
           Container(
             constraints: BoxConstraints(

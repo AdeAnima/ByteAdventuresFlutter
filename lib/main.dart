@@ -1,12 +1,9 @@
-import 'dart:ui';
-
 import 'package:byte_adventures/generated/l10n.dart';
 import 'package:byte_adventures/presentation/helpers/size_sensitive_textstyle.dart';
 import 'package:byte_adventures/presentation/pages/landing_page.dart';
 import 'package:byte_adventures/presentation/pages/participants_page.dart';
 import 'package:byte_adventures/presentation/theme.dart';
 import 'package:byte_adventures/presentation/widgets/embeded_i_frame.dart';
-import 'package:byte_adventures/presentation/widgets/mascot_animation.dart';
 import 'package:byte_adventures/presentation/widgets/neon_decoration.dart';
 import 'package:byte_adventures/presentation/widgets/social_media_row.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -89,20 +86,24 @@ class _PageContentState extends State<PageContent> {
                     duration: const Duration(milliseconds: 100), curve: Curves.easeInOut);
               },
             ),
-            Column(
-              children: [
-                Flexible(
-                  child: Center(
-                    child: Container(
-                      margin: const EdgeInsets.all(24.0),
-                      constraints: const BoxConstraints(maxWidth: 900, maxHeight: 700),
-                      decoration: NeonDecoration.neonDecorationColor(context, decorationColor: Colors.white),
-                      child: const Iframe(iframeUrl: 'https://tickets.byte-adventures.com/'),
-                    ),
+            Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'Tickets',
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    style: Theme.of(context).textTheme.headline1!.resize(context),
                   ),
-                ),
-                const SizedBox(height: 32)
-              ],
+                  Container(
+                    margin: const EdgeInsets.all(24.0),
+                    constraints: const BoxConstraints(maxWidth: 900, maxHeight: 700),
+                    decoration: NeonDecoration.neonDecorationColor(context, decorationColor: Colors.white),
+                    child: const Iframe(iframeUrl: 'https://tickets.byte-adventures.com/'),
+                  ),
+                ],
+              ),
             ),
             const ParticipantsPage(),
           ],
@@ -118,32 +119,6 @@ class _PageContentState extends State<PageContent> {
             ),
           ),
         ),
-        if (_currentPage == 0)
-          AnimatedAlign(
-            duration: const Duration(seconds: 1),
-            alignment: _animatedMascotAlign(context, _currentPage),
-            child: GestureDetector(
-              onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    title: Text(
-                      S.of(context).iNeedAName,
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline6!.resize(context),
-                    ),
-                  ),
-                );
-              },
-              child: SizedBox(
-                height: windowWidth > 1000 ? 300 : 150,
-                width: windowWidth > 1000 ? 300 : 150,
-                child: const MascotAnimation(),
-              ),
-            ),
-          )
-        else
-          Container(),
         Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -160,13 +135,5 @@ class _PageContentState extends State<PageContent> {
         ),
       ]),
     );
-  }
-
-  Alignment _animatedMascotAlign(BuildContext context, int pageIndex) {
-    final windowWidth = MediaQuery.of(context).size.width;
-
-    return _currentPage == 0
-        ? Alignment(windowWidth > 1000 ? -0.75 : -0.9, windowWidth > 1000 ? 0.1 : 0.25)
-        : Alignment(windowWidth > 1000 ? -0.9 : -0.9, windowWidth > 1000 ? 0.8 : 0.8);
   }
 }
