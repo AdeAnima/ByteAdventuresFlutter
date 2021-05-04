@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:byte_adventures/domain/participant.dart';
 import 'package:byte_adventures/presentation/widgets/neon_decoration.dart';
-import 'package:byte_adventures/presentation/widgets/neon_glow_shadow.dart';
 import 'package:flutter/material.dart';
 
 class ParticipantCard extends StatefulWidget {

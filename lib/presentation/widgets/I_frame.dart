@@ -39,5 +39,5 @@ class _IframeState extends State<Iframe> {
   }
 
   @override
-  Widget build(BuildContext context) => _iframeWidget == null ? Container() : _iframeWidget!;
+  Widget build(BuildContext context) => _iframeWidget == null ? const CircularProgressIndicator() : _iframeWidget!;
 }
