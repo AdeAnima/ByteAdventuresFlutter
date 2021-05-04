@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:byte_adventures/presentation/widgets/I_frame.dart';
+import 'package:byte_adventures/presentation/widgets/neon_decoration.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -57,6 +59,7 @@ class PageContent extends StatefulWidget {
 
 class _PageContentState extends State<PageContent> {
   final _pageViewController = PageController();
+  int _currentPage = 0;
 
   @override
   void initState() {
@@ -70,6 +73,11 @@ class _PageContentState extends State<PageContent> {
     return Scaffold(
       body: Stack(children: [
         PageView(
+          onPageChanged: (newPageIndex) {
+            setState(() {
+              _currentPage = newPageIndex;
+            });
+          },
           controller: _pageViewController,
           scrollDirection: Axis.vertical,
           children: [
@@ -77,9 +85,17 @@ class _PageContentState extends State<PageContent> {
               windowHeight: windowHeight,
               goDownCallback: () {
                 _pageViewController.animateToPage(1,
-                    duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+                    duration: const Duration(milliseconds: 100), curve: Curves.easeInOut);
               },
             ),
+            Center(
+              child: Container(
+                padding: const EdgeInsets.all(8.0),
+                constraints: const BoxConstraints(maxWidth: 900, maxHeight: 700),
+                decoration: NeonDecoration.neonDecorationColor(context, decorationColor: Colors.white),
+                child: const Iframe(iframeUrl: 'https://tickets.byte-adventures.com/'),
+              ),
+            )
           ],
         ),
         IgnorePointer(
@@ -93,8 +109,9 @@ class _PageContentState extends State<PageContent> {
             ),
           ),
         ),
-        Align(
-          alignment: Alignment(windowWidth > 1000 ? -0.75 : -0.9, windowWidth > 1000 ? 0.1 : 0.25),
+        AnimatedAlign(
+          duration: const Duration(seconds: 1),
+          alignment: _animatedMascotAlign(windowWidth),
           child: GestureDetector(
             onTap: () {
               showDialog(
@@ -118,6 +135,10 @@ class _PageContentState extends State<PageContent> {
       ]),
     );
   }
+
+  Alignment _animatedMascotAlign(double windowWidth) => _currentPage == 0
+      ? Alignment(windowWidth > 1000 ? -0.75 : -0.9, windowWidth > 1000 ? 0.1 : 0.25)
+      : Alignment(windowWidth > 1000 ? -0.9 : -0.9, windowWidth > 1000 ? 0.8 : 0.8);
 }
 
 class OrgaProfileImage extends StatelessWidget {
@@ -167,8 +188,7 @@ class SocialMediaIconRow extends StatelessWidget {
             IconButton(
                 icon: const FaIcon(FontAwesomeIcons.linkedin),
                 onPressed: () {
-                  openURL(
-                      'https://www.linkedin.com/events/byteadventures-conference20216778733206616215553/');
+                  openURL('https://www.linkedin.com/events/byteadventures-conference20216778733206616215553/');
                 }),
             IconButton(
                 icon: const FaIcon(FontAwesomeIcons.spotify),
@@ -233,39 +253,32 @@ class LandingPage extends StatelessWidget {
               const SizedBox(height: 8),
               AutoSizeText(
                 'Share your excitement.',
-                style: windowHeight > 800
-                    ? Theme.of(context).textTheme.headline4!
-                    : Theme.of(context).textTheme.bodyText1,
+                style:
+                    windowHeight > 800 ? Theme.of(context).textTheme.headline4! : Theme.of(context).textTheme.bodyText1,
                 textAlign: TextAlign.center,
                 group: subheaderTextsGroup,
               ),
               AutoSizeText(
                 'Shape the community.',
-                style: windowHeight > 800
-                    ? Theme.of(context).textTheme.headline4!
-                    : Theme.of(context).textTheme.bodyText1,
+                style:
+                    windowHeight > 800 ? Theme.of(context).textTheme.headline4! : Theme.of(context).textTheme.bodyText1,
                 textAlign: TextAlign.center,
                 group: subheaderTextsGroup,
               ),
               AutoSizeText(
                 'Join ByteAdventures.',
-                style: windowHeight > 800
-                    ? Theme.of(context).textTheme.headline4!
-                    : Theme.of(context).textTheme.bodyText1,
+                style:
+                    windowHeight > 800 ? Theme.of(context).textTheme.headline4! : Theme.of(context).textTheme.bodyText1,
                 textAlign: TextAlign.center,
                 group: subheaderTextsGroup,
               ),
-              if (windowHeight > 800)
-                SizedBox(height: windowHeight * 0.40)
-              else
-                SizedBox(height: windowHeight * 0.30),
+              if (windowHeight > 800) SizedBox(height: windowHeight * 0.40) else SizedBox(height: windowHeight * 0.30),
               AutoSizeText(
                 'In Dev. For more infos, click below',
                 textAlign: TextAlign.center,
                 maxLines: 2,
-                style: windowHeight > 800
-                    ? Theme.of(context).textTheme.headline4
-                    : Theme.of(context).textTheme.bodyText1,
+                style:
+                    windowHeight > 800 ? Theme.of(context).textTheme.headline4 : Theme.of(context).textTheme.bodyText1,
               ),
               IconButton(
                 tooltip: 'Check current website',
