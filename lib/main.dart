@@ -1,7 +1,12 @@
 import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:byte_adventures/presentation/widgets/I_frame.dart';
+import 'package:byte_adventures/generated/l10n.dart';
+import 'package:byte_adventures/infrastructure/helpers.dart';
+import 'package:byte_adventures/presentation/pages/participants_page.dart';
+import 'package:byte_adventures/presentation/theme.dart';
+import 'package:byte_adventures/presentation/widgets/embeded_i_frame.dart';
+import 'package:byte_adventures/presentation/widgets/mascot_animation.dart';
 import 'package:byte_adventures/presentation/widgets/neon_decoration.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -10,11 +15,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_strategy/url_strategy.dart';
-import 'package:byte_adventures/generated/l10n.dart';
-
-import 'package:byte_adventures/presentation/theme.dart';
-import 'package:byte_adventures/presentation/widgets/mascot_animation.dart';
-import 'package:byte_adventures/infrastructure/helpers.dart';
 
 void main() {
   LicenseRegistry.addLicense(() async* {
@@ -70,69 +70,73 @@ class _PageContentState extends State<PageContent> {
   Widget build(BuildContext context) {
     final windowHeight = MediaQuery.of(context).size.height;
     final windowWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
-      body: Stack(children: [
-        PageView(
-          onPageChanged: (newPageIndex) {
-            setState(() {
-              _currentPage = newPageIndex;
-            });
-          },
-          controller: _pageViewController,
-          scrollDirection: Axis.vertical,
-          children: [
-            LandingPage(
-              windowHeight: windowHeight,
-              goDownCallback: () {
-                _pageViewController.animateToPage(1,
-                    duration: const Duration(milliseconds: 100), curve: Curves.easeInOut);
-              },
-            ),
-            Center(
-              child: Container(
-                padding: const EdgeInsets.all(8.0),
-                constraints: const BoxConstraints(maxWidth: 900, maxHeight: 700),
-                decoration: NeonDecoration.neonDecorationColor(context, decorationColor: Colors.white),
-                child: const Iframe(iframeUrl: 'https://tickets.byte-adventures.com/'),
-              ),
-            )
-          ],
-        ),
-        IgnorePointer(
-          child: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.transparent, Colors.black54],
-                begin: Alignment(0.0, 0.8),
-                end: Alignment.bottomCenter,
-              ),
-            ),
-          ),
-        ),
-        AnimatedAlign(
-          duration: const Duration(seconds: 1),
-          alignment: _animatedMascotAlign(windowWidth),
-          child: GestureDetector(
-            onTap: () {
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: AutoSizeText(
-                    S.of(context).iNeedAName,
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headline6!,
-                  ),
-                ),
-              );
+      body: Stack(
+        children: [
+          PageView(
+            onPageChanged: (newPageIndex) {
+              setState(() {
+                _currentPage = newPageIndex;
+              });
             },
-            child: SizedBox(
-              height: windowWidth > 1000 ? 300 : 150,
-              width: windowWidth > 1000 ? 300 : 150,
-              child: const MascotAnimation(),
+            controller: _pageViewController,
+            scrollDirection: Axis.vertical,
+            children: [
+              LandingPage(
+                windowHeight: windowHeight,
+                goDownCallback: () {
+                  _pageViewController.animateToPage(1,
+                      duration: const Duration(milliseconds: 100), curve: Curves.easeInOut);
+                },
+              ),
+              Center(
+                child: Container(
+                  padding: const EdgeInsets.all(8.0),
+                  constraints: const BoxConstraints(maxWidth: 900, maxHeight: 700),
+                  decoration: NeonDecoration.neonDecorationColor(context, decorationColor: Colors.white),
+                  child: const Iframe(iframeUrl: 'https://tickets.byte-adventures.com/'),
+                ),
+              ),
+              const ParticipantsPage(),
+            ],
+          ),
+          IgnorePointer(
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.transparent, Colors.black54],
+                  begin: Alignment(0.0, 0.8),
+                  end: Alignment.bottomCenter,
+                ),
+              ),
             ),
           ),
-        ),
-      ]),
+          AnimatedAlign(
+            duration: const Duration(seconds: 1),
+            alignment: _animatedMascotAlign(windowWidth),
+            child: GestureDetector(
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: AutoSizeText(
+                      S.of(context).iNeedAName,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.headline6!,
+                    ),
+                  ),
+                );
+              },
+              child: SizedBox(
+                height: windowWidth > 1000 ? 300 : 150,
+                width: windowWidth > 1000 ? 300 : 150,
+                child: const MascotAnimation(),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 

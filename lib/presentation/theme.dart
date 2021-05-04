@@ -8,6 +8,7 @@ ThemeData get byteAdventuresTheme => ThemeData(
       brightness: Brightness.dark,
       buttonColor: const Color(0xFFAF1CFE),
       shadowColor: const Color(0xFFF54B26),
+      scaffoldBackgroundColor: const Color(0xFF0F0F0F),
       textTheme: TextTheme(
         headline1: GoogleFonts.firaCode(textStyle: const TextStyle(fontSize: 48, letterSpacing: 3.0)),
         headline2: GoogleFonts.firaCode(
