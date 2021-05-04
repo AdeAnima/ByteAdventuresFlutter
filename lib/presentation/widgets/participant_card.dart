@@ -1,5 +1,5 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:byte_adventures/domain/participant.dart';
+import 'package:byte_adventures/presentation/helpers/size_sensitive_textstyle.dart';
 import 'package:byte_adventures/presentation/widgets/neon_decoration.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +36,12 @@ class _ParticipantCardState extends State<ParticipantCard> {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [AutoSizeText(widget.participant.firstName)],
+              children: [
+                Text(
+                  widget.participant.firstName,
+                  style: Theme.of(context).textTheme.headline6!.resize(context),
+                )
+              ],
             ),
           ),
         ),

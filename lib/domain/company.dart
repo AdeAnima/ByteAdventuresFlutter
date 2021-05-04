@@ -1,5 +1,3 @@
-import 'package:byte_adventures/domain/participant.dart';
-
 class Company {
   // static Map<String, List<Participant>> employees = {};
 
