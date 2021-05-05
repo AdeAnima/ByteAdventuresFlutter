@@ -68,6 +68,7 @@ class _PageContentState extends State<PageContent> {
       body: Stack(children: [
         PageView(
           controller: _pageViewController,
+          pageSnapping: false,
           scrollDirection: Axis.vertical,
           children: [
             LandingPage(

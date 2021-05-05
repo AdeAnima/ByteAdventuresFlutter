@@ -47,6 +47,9 @@ class _ParticipantCardState extends State<ParticipantCard> {
                 Text(
                   widget.participant.shortBio,
                   style: Theme.of(context).textTheme.bodyText2!.resize(context),
+                  maxLines: 5,
+                  overflow: TextOverflow.fade,
+                  softWrap: true,
                 ),
                 const SizedBox(height: 8.0),
                 Row(

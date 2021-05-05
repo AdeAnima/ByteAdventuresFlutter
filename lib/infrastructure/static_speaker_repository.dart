@@ -9,7 +9,8 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         Participant(
           firstName: 'Martin',
           lastName: 'Westphal',
-          shortBio: 'Too busy to write anything about me in here :)',
+          shortBio:
+              'Martin Westphal is a Nerd by heart, loves challenges of any kind and is a firm believer that most people are capable of way more than they believe, if you give them the chance and encourage them. As the co-founder & CTO of the yamuntu GmbH, leader & co-founder of the byteAdventures Community, founder of the Hamburg Dart, Firebase and byteAdventures Meetups, he is trying to help people achieve more and believe in themselves, to create great things with technology.',
           pictureUrl: Uri.parse('https://cdn.filestackcontent.com/VlsPVuGRfWqFQMxsBsKg'),
           firstSpeakerExperience: '',
           favoriteGame: 'Fallout 4',
