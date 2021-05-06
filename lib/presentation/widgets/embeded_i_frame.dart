@@ -6,8 +6,10 @@ import 'package:universal_ui/universal_ui.dart';
 
 class Iframe extends StatefulWidget {
   final String iframeUrl;
+  final int? iframeWidth;
+  final int? iframeHeight;
 
-  const Iframe({required this.iframeUrl, Key? key}) : super(key: key);
+  const Iframe({required this.iframeUrl, Key? key, this.iframeWidth, this.iframeHeight}) : super(key: key);
 
   @override
   _IframeState createState() => _IframeState();
@@ -27,6 +29,9 @@ class _IframeState extends State<Iframe> {
       ..src = widget.iframeUrl
       ..style.border = 'none';
 
+    if (widget.iframeWidth != null) _iframeElement.width = widget.iframeWidth.toString();
+    if (widget.iframeHeight != null) _iframeElement.height = widget.iframeHeight.toString();
+
     ui.platformViewRegistry.registerViewFactory(
       'iframeElement',
       (viewId) => _iframeElement,
@@ -39,5 +44,15 @@ class _IframeState extends State<Iframe> {
   }
 
   @override
-  Widget build(BuildContext context) => _iframeWidget == null ? const CircularProgressIndicator() : _iframeWidget!;
+  Widget build(BuildContext context) {
+    if (_iframeWidget == null) return const CircularProgressIndicator();
+    if (widget.iframeHeight != null && widget.iframeWidth != null) {
+      return SizedBox(
+        width: widget.iframeWidth!.toDouble(),
+        height: widget.iframeHeight!.toDouble(),
+        child: _iframeWidget,
+      );
+    }
+    return _iframeWidget!;
+  }
 }
