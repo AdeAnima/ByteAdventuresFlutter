@@ -1,8 +1,10 @@
-name: CI
+name: Deploy Website
 on:
   push:
     branches:
       - master
+    paths-ignore: 
+      - 'gather_redirect/**'
 jobs:
   build_web:
     name: Build Flutter (Web)
