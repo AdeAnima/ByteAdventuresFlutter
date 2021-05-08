@@ -8,6 +8,7 @@ class Participant {
   // final String shortBio;
   final Uri pictureUrl;
   final Alignment pictureAligment;
+  final String pictureHash;
   // final String firstSpeakerExperience;
   // final String favoriteGame;
   // final String favoriteTechnology;
@@ -25,6 +26,7 @@ class Participant {
     required this.pictureUrl,
     required this.job,
     required this.profiles,
+    required this.pictureHash,
     this.pictureAligment = const Alignment(-0.3, 0.0),
     // required this.shortBio,
     // required this.personalInterest,
