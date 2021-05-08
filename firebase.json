@@ -40,8 +40,8 @@
       ],
       "rewrites": [
         {
-          "source": "**",
-          "destination": "/index.html"
+          "source": "/links/**",
+          "dynamicLinks": true
         }
       ]
     }
