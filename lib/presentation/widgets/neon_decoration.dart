@@ -8,7 +8,7 @@ class NeonDecoration {
         borderRadius: BorderRadius.circular(8.0),
         boxShadow: NeonGlowShadow.themeGlow(context),
         border: Border.all(
-          color: Theme.of(context).accentColor,
+          color: Colors.white70,
           width: 2,
         ),
         gradient: gradient,
@@ -20,7 +20,7 @@ class NeonDecoration {
         borderRadius: BorderRadius.circular(8.0),
         boxShadow: NeonGlowShadow.themeGlow(context),
         border: Border.all(
-          color: Theme.of(context).accentColor,
+          color: Colors.white70,
           width: 2,
         ),
         gradient: gradient,

@@ -12,12 +12,7 @@
         "**/.*",
         "**/node_modules/**"
       ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ],
+      "rewrites": [],
       "headers": [
         {
           "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
@@ -40,8 +35,8 @@
       ],
       "rewrites": [
         {
-          "source": "/links/**",
-          "dynamicLinks": true
+          "source": "**",
+          "destination": "/index.html"
         }
       ]
     }

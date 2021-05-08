@@ -12,7 +12,7 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         Participant(
           firstName: 'Martin',
           lastName: 'Westphal',
-          pictureUrl: Uri.file('assets/images/people/martin_westphal.jpeg'),
+          pictureUrl: Uri.file('assets/assets/images/people/martin_westphal.jpeg'),
           profiles: [
             PlatformProfile(
               profileUrl: Uri.parse('https://twitter.com/AdeAnima'),
@@ -32,7 +32,7 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         Participant(
           firstName: 'Alexander',
           lastName: 'Jäger',
-          pictureUrl: Uri.file('assets/images/people/alexander_jäger.jpeg'),
+          pictureUrl: Uri.file('assets/images/people/alexander_jager.jpeg'),
           profiles: [
             PlatformProfile(
               profileUrl: Uri.parse('https://www.linkedin.com/in/lxhunter/'),
@@ -50,7 +50,7 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         Participant(
           firstName: 'Aya',
           lastName: 'Jaff',
-          pictureUrl: Uri.file('assets/images/people/aya_jaff.jpg'),
+          pictureUrl: Uri.file('assets/assets/images/people/aya_jaff.jpg'),
           job: JobAtCompany(
               title: 'Founder & Author',
               companyName: 'Aya Jaff',
@@ -79,7 +79,7 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         Participant(
           firstName: 'Ellen',
           lastName: 'Schwartau',
-          pictureUrl: Uri.file('assets/images/people/ellen_schwartau.jpg'),
+          pictureUrl: Uri.file('assets/assets/images/people/ellen_schwartau.jpg'),
           pictureAligment: const Alignment(0.0, 0.0),
           job: JobAtCompany(
               title: 'Technologist',
@@ -97,7 +97,7 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         Participant(
           firstName: 'Finn',
           lastName: 'Lorbeer',
-          pictureUrl: Uri.file('assets/images/people/finn_lorbeer.jpg'),
+          pictureUrl: Uri.file('assets/assets/images/people/finn_lorbeer.jpg'),
           job: JobAtCompany(
               title: 'Director of Engineering',
               companyName: 'MOIA',
@@ -114,7 +114,7 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         Participant(
           firstName: 'Julia',
           lastName: 'Heidinger',
-          pictureUrl: Uri.file('assets/images/people/julia_heidinger.jpg'),
+          pictureUrl: Uri.file('assets/assets/images/people/julia_heidinger.jpg'),
           pictureAligment: const Alignment(-0.1, 0.0),
           job: JobAtCompany(
             title: 'Co-Founder',
@@ -134,7 +134,7 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         Participant(
           firstName: 'Katerina',
           lastName: 'Trajchevska',
-          pictureUrl: Uri.file('assets/images/people/katerina_trajchevska.jpg'),
+          pictureUrl: Uri.file('assets/assets/images/people/katerina_trajchevska.jpg'),
           job: JobAtCompany(
             title: 'Co-Founder, CEO, Senior Software Developer',
             companyName: 'Adeva',
@@ -153,7 +153,7 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         Participant(
           firstName: 'Lars',
           lastName: 'Wolff',
-          pictureUrl: Uri.file('assets/images/people/lars_wolff.jpg'),
+          pictureUrl: Uri.file('assets/assets/images/people/lars_wolff.jpg'),
           job: JobAtCompany(
             title: 'Co-Founder & CEO',
             companyName: 'StormForger GmbH',
@@ -171,7 +171,7 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         Participant(
           firstName: 'Nils',
           lastName: 'Eckelt',
-          pictureUrl: Uri.file('assets/images/people/nils_eckelt.jpg'),
+          pictureUrl: Uri.file('assets/assets/images/people/nils_eckelt.jpg'),
           pictureAligment: const Alignment(-0.2, 0.0),
           job: JobAtCompany(
             title: 'Senior Consultant',
@@ -190,7 +190,7 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         Participant(
           firstName: 'Simon',
           lastName: 'Graff',
-          pictureUrl: Uri.file('assets/images/people/simon_graff.jpeg'),
+          pictureUrl: Uri.file('assets/assets/images/people/simon_graff.jpeg'),
           job: JobAtCompany(
             title: 'XR Professional & Consultant',
             companyName: 'Simon Graff',
@@ -208,7 +208,7 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         Participant(
           firstName: 'Stefan',
           lastName: 'Richter',
-          pictureUrl: Uri.file('assets/images/people/stefan_richter.jpg'),
+          pictureUrl: Uri.file('assets/assets/images/people/stefan_richter.jpg'),
           job: JobAtCompany(
             title: 'Founder',
             companyName: 'freiheit.com',
@@ -226,7 +226,7 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         Participant(
           firstName: 'Tam',
           lastName: 'Hanna',
-          pictureUrl: Uri.file('assets/images/people/tam_hanna.jpg'),
+          pictureUrl: Uri.file('assets/assets/images/people/tam_hanna.jpg'),
           pictureAligment: const Alignment(-0.05, 0.0),
           job: JobAtCompany(
             title: 'Founder',
@@ -245,7 +245,7 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         Participant(
           firstName: 'Tereza',
           lastName: 'Iofciu',
-          pictureUrl: Uri.file('assets/images/people/tereza_iofciu.jpg'),
+          pictureUrl: Uri.file('assets/assets/images/people/tereza_iofciu.jpg'),
           pictureAligment: const Alignment(-0.4, 0.0),
           job: JobAtCompany(
             title: 'Head Data Science Coach',
@@ -264,7 +264,7 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         Participant(
           firstName: 'Vladyslav',
           lastName: 'Cherednychenko',
-          pictureUrl: Uri.file('assets/images/people/vladyslav_cherednychenko.jpg'),
+          pictureUrl: Uri.file('assets/assets/images/people/vladyslav_cherednychenko.jpg'),
           job: JobAtCompany(
             title: 'Lead Security Engineer',
             companyName: 'About You',
