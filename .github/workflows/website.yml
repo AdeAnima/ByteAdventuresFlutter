@@ -14,10 +14,9 @@ jobs:
       - uses: subosito/flutter-action@v1
       - run: flutter pub get
       - run: flutter build web --no-sound-null-safety --release
-      - name: Link to target
-        uses: w9jds/firebase-action@master
+      - name: Deploy 
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          args: firebase deploy hosting --public build/web
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          PROJECT_ID: b8adventures
+          firebaseServiceAccount: ${{ secrets.FIREBASE_TOKEN }}
+          projectId: b8adventures
+          target: b8adventures
