@@ -54,6 +54,7 @@ class PageContent extends StatefulWidget {
 
 class _PageContentState extends State<PageContent> {
   final _pageViewController = PageController();
+  int _currentPage = 0;
 
   @override
   void initState() {
@@ -68,6 +69,11 @@ class _PageContentState extends State<PageContent> {
       body: Stack(children: [
         PageView(
           controller: _pageViewController,
+          onPageChanged: (newPage) {
+            setState(() {
+              _currentPage = newPage;
+            });
+          },
           scrollDirection: Axis.vertical,
           children: [
             LandingPage(
@@ -95,33 +101,40 @@ class _PageContentState extends State<PageContent> {
         Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    children: [
-                      if (_pageViewController.hasClients)
-                        IconButton(
-                            icon: const Icon(Icons.arrow_upward_outlined),
-                            onPressed: () {
-                              _pageViewController.animateToPage(
-                                _pageViewController.page!.toInt() - 1,
-                                duration: const Duration(milliseconds: 300),
-                                curve: Curves.decelerate,
-                              );
-                            })
-                      else
-                        Container(),
-                    ],
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.arrow_upward_outlined),
+                    enableFeedback: false,
+                    onPressed: _currentPage > 0
+                        ? () {
+                            _pageViewController.animateToPage(
+                              _pageViewController.page!.toInt() - 1,
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.decelerate,
+                            );
+                          }
+                        : null,
                   ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: SocialMediaIconRow(),
-                ),
-              ],
+                  IconButton(
+                    icon: const Icon(Icons.arrow_downward_outlined),
+                    onPressed: _currentPage < 2
+                        ? () {
+                            _pageViewController.animateToPage(
+                              _pageViewController.page!.toInt() + 1,
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.decelerate,
+                            );
+                          }
+                        : null,
+                  ),
+                  const Spacer(),
+                  const SocialMediaIconRow(),
+                ],
+              ),
             ),
           ],
         ),
