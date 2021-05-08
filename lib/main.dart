@@ -68,18 +68,17 @@ class _PageContentState extends State<PageContent> {
       body: Stack(children: [
         PageView(
           controller: _pageViewController,
-          pageSnapping: false,
           scrollDirection: Axis.vertical,
           children: [
             LandingPage(
               windowHeight: windowHeight,
               goDownCallback: () {
-                _pageViewController.animateToPage(1,
+                _pageViewController.animateToPage(2,
                     duration: const Duration(milliseconds: 100), curve: Curves.easeInOut);
               },
             ),
-            const TicketsPage(),
             const ParticipantsPage(),
+            const TicketsPage(),
           ],
         ),
         IgnorePointer(

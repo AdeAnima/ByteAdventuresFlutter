@@ -8,13 +8,29 @@ class TicketsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ByteOverlayedPage(
-        pageName: 'Tickets',
+        pageName: 'JOIN B8+',
         socialIconsOverlay: Overlaydefinition(),
-        pageContent: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 30.0),
-          constraints: const BoxConstraints(maxWidth: 900, maxHeight: 700),
-          decoration: NeonDecoration.neonDecorationColor(context, decorationColor: Colors.white),
-          child: const Iframe(iframeUrl: 'https://tickets.byte-adventures.com/'),
-        ),
+        pageContent: MediaQuery.of(context).size.width > 700
+            ? Row(mainAxisAlignment: MainAxisAlignment.center, children: const [TicketsWidget()])
+            : const TicketsWidget(),
       );
+}
+
+class TicketsWidget extends StatelessWidget {
+  const TicketsWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width > 400 ? 48.0 : 20, vertical: 10),
+      decoration: NeonDecoration.neonDecorationColor(context, decorationColor: Colors.white),
+      child: const Iframe(
+        iframeUrl: 'https://tickets.byte-adventures.com/',
+        iframeHeight: 485,
+        iframeWidth: 700,
+      ),
+    );
+  }
 }

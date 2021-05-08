@@ -17,6 +17,7 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final windowWidth = MediaQuery.of(context).size.width;
+    final daysLeft = DateTime(2021, 5, 24).difference(DateTime.now()).inDays;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
@@ -101,10 +102,10 @@ class LandingPage extends StatelessWidget {
           ),
           Flexible(
             child: Text(
-              '20 Days left, get your ticket:',
+              '$daysLeft Days left, get your ticket:',
               textAlign: TextAlign.center,
               maxLines: 1,
-              style: Theme.of(context).textTheme.headline3!.resize(context),
+              style: Theme.of(context).textTheme.headline2!.resize(context),
             ),
           ),
           Flexible(

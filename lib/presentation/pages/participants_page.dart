@@ -8,19 +8,21 @@ class ParticipantsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final windowHeight = MediaQuery.of(context).size.height;
-    final participants = [StaticSpeakerRepository().speakers.first];
+    final windowSize = MediaQuery.of(context).size;
+    final participants = StaticSpeakerRepository().speakers;
 
     return ByteOverlayedPage(
       pageName: 'Speakers',
       socialIconsOverlay: Overlaydefinition(),
       pageContent: Container(
           constraints: BoxConstraints(
-            maxHeight: windowHeight / 1.5,
+            maxHeight: windowSize.height / 1.5,
             minWidth: double.infinity,
           ),
           child: GridView.count(
-            crossAxisCount: 2,
+            crossAxisSpacing: windowSize.width > 700 ? 48.0 : 0,
+            mainAxisSpacing: windowSize.width > 700 ? 48.0 : 32,
+            crossAxisCount: windowSize.height > 700 || windowSize.aspectRatio > 1.618 + 0.2 ? 2 : 1,
             childAspectRatio: 1.618,
             padding: const EdgeInsets.all(40),
             scrollDirection: Axis.horizontal,

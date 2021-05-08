@@ -15,25 +15,25 @@ class NeonGlowShadow {
         BoxShadow(
           color: color1.withOpacity(0.6),
           spreadRadius: 1,
-          blurRadius: 16,
+          blurRadius: Random(16).nextDouble() * 8 + 8,
           offset: const Offset(-8, 0),
         ),
         BoxShadow(
           color: color2.withOpacity(0.6),
           spreadRadius: 1,
-          blurRadius: 16,
+          blurRadius: Random(16).nextDouble() * 8 + 8,
           offset: const Offset(8, 0),
         ),
         BoxShadow(
           color: color1.withOpacity(0.2),
-          spreadRadius: 16,
-          blurRadius: 32,
+          spreadRadius: 8,
+          blurRadius: Random(16).nextDouble() * 16 + 8,
           offset: const Offset(-8, 0),
         ),
         BoxShadow(
           color: color2.withOpacity(0.2),
-          spreadRadius: 16,
-          blurRadius: 32,
+          spreadRadius: 8,
+          blurRadius: Random(16).nextDouble() * 16 + 8,
           offset: const Offset(8, 0),
         )
       ]..shuffle(Random());

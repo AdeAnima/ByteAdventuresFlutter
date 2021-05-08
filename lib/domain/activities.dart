@@ -13,7 +13,10 @@ abstract class Activity {
 }
 
 class JobAtCompany extends Activity {
+  final String title;
+
   JobAtCompany({
+    required this.title,
     required String companyName,
     required Uri companyLogo,
     required Uri homepage,

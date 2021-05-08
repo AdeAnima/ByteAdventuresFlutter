@@ -47,9 +47,11 @@ class _IframeState extends State<Iframe> {
   Widget build(BuildContext context) {
     if (_iframeWidget == null) return const CircularProgressIndicator();
     if (widget.iframeHeight != null && widget.iframeWidth != null) {
-      return SizedBox(
-        width: widget.iframeWidth!.toDouble(),
-        height: widget.iframeHeight!.toDouble(),
+      return ConstrainedBox(
+        constraints: BoxConstraints(
+          maxHeight: widget.iframeHeight!.toDouble(),
+          maxWidth: widget.iframeWidth!.toDouble(),
+        ),
         child: _iframeWidget,
       );
     }

@@ -30,7 +30,7 @@ class ByteOverlayedPage extends StatelessWidget {
         child: Column(
           children: [
             if (pageName != null) ...[PageHeader(text: pageName!)] else Container(),
-            SizedBox(child: pageContent),
+            Expanded(child: pageContent),
             if (socialIconsOverlay != null) const SizedBox(height: 62) else Container(),
           ],
         ),
