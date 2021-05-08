@@ -23,7 +23,8 @@ class StaticSpeakerRepository implements ISpeakerRepository {
             title: 'co-Funder & CTO',
             companyName: 'yamuntu GmbH',
             companyLogo: Uri.parse(
-                'https://www.google.com/url?sa=i&url=https%3A%2F%2Fde.linkedin.com%2Fcompany%2Fyamuntu&psig=AOvVaw1_QXLqC4wRTnfDa1jNQ0hI&ust=1620429639251000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOCp0_uYtvACFQAAAAAdAAAAABAD'),
+              'https://firebasestorage.googleapis.com/v0/b/b8adventures.appspot.com/o/participants%2Falexander_jäger.jpeg?alt=media&token=13aac7bc-9728-4174-a7e0-ca295c24f702',
+            ),
             homepage: Uri.parse('https://app.yamuntu.com'),
             description: 'Show what you stand for!',
           ),

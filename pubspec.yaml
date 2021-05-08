@@ -36,6 +36,8 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/people/
+    - assets/images/company_logos/
     - assets/animations/mascot.riv
     - google_fonts/
 flutter_intl:

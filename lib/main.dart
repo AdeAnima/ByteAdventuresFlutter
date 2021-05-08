@@ -96,9 +96,28 @@ class _PageContentState extends State<PageContent> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: const [
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
                 Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Row(
+                    children: [
+                      if (_pageViewController.hasClients)
+                        IconButton(
+                            icon: const Icon(Icons.arrow_upward_outlined),
+                            onPressed: () {
+                              _pageViewController.animateToPage(
+                                _pageViewController.page!.toInt() - 1,
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.decelerate,
+                              );
+                            })
+                      else
+                        Container(),
+                    ],
+                  ),
+                ),
+                const Padding(
                   padding: EdgeInsets.all(16.0),
                   child: SocialMediaIconRow(),
                 ),

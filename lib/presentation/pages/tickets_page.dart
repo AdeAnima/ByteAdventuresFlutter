@@ -22,15 +22,13 @@ class TicketsWidget extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width > 400 ? 48.0 : 20, vertical: 10),
-      decoration: NeonDecoration.neonDecorationColor(context, decorationColor: Colors.white),
-      child: const Iframe(
-        iframeUrl: 'https://tickets.byte-adventures.com/',
-        iframeHeight: 485,
-        iframeWidth: 700,
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Container(
+        margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width > 400 ? 48.0 : 20, vertical: 10),
+        decoration: NeonDecoration.neonDecorationColor(context, decorationColor: Colors.white),
+        child: const Iframe(
+          iframeUrl: 'https://tickets.byte-adventures.com/',
+          iframeHeight: 485,
+          iframeWidth: 700,
+        ),
+      );
 }
