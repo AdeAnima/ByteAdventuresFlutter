@@ -15,8 +15,24 @@ class StaticSpeakerRepository implements ISpeakerRepository {
           pictureUrl: Uri.file('assets/assets/images/people/martin_westphal.jpeg'),
           profiles: [
             PlatformProfile(
+              profileUrl: Uri.parse('https://www.linkedin.com/in/ade-anima/'),
+              platform: Platform.linkedIn,
+            ),
+            PlatformProfile(
               profileUrl: Uri.parse('https://twitter.com/AdeAnima'),
               platform: Platform.twitter,
+            ),
+            PlatformProfile(
+              profileUrl: Uri.parse('https://github.com/adeanima'),
+              platform: Platform.github,
+            ),
+            PlatformProfile(
+              profileUrl: Uri.parse('https://www.xing.com/profile/Martin_Westphal31'),
+              platform: Platform.xing,
+            ),
+            PlatformProfile(
+              profileUrl: Uri.parse('https://martin.westphal.pw/'),
+              platform: Platform.blog,
             ),
           ],
           job: JobAtCompany(
