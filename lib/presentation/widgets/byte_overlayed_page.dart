@@ -25,14 +25,16 @@ class ByteOverlayedPage extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 1080),
-        child: Column(
-          children: [
-            if (pageName != null) ...[PageHeader(text: pageName!)] else Container(),
-            Expanded(child: pageContent),
-            if (socialIconsOverlay != null) const SizedBox(height: 62) else Container(),
-          ],
+  Widget build(BuildContext context) => Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 1280),
+          child: Column(
+            children: [
+              if (pageName != null) ...[PageHeader(text: pageName!)] else Container(),
+              Expanded(child: pageContent),
+              if (socialIconsOverlay != null) const SizedBox(height: 62) else Container(),
+            ],
+          ),
         ),
       );
 }

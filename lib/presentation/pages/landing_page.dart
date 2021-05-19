@@ -6,10 +6,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LandingPage extends StatelessWidget {
   final VoidCallback goDownCallback;
-  final double windowHeight;
 
   const LandingPage({
-    required this.windowHeight,
     required this.goDownCallback,
     Key? key,
   }) : super(key: key);
@@ -17,7 +15,7 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final windowWidth = MediaQuery.of(context).size.width;
-    final daysLeft = DateTime(2021, 5, 24).difference(DateTime.now()).inDays;
+    final daysLeft = DateTime(2021, 6, 24).difference(DateTime.now()).inDays;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
@@ -39,7 +37,7 @@ class LandingPage extends StatelessWidget {
           ),
           Flexible(
             child: Text(
-              'May 24th & 25th 2021',
+              'June 24th & 25th 2021',
               style: Theme.of(context).textTheme.headline3!.resize(context),
               maxLines: 1,
               textAlign: TextAlign.center,

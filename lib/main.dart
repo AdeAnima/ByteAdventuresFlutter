@@ -1,4 +1,5 @@
 import 'package:byte_adventures/generated/l10n.dart';
+import 'package:byte_adventures/presentation/pages/about_the_conference.dart';
 import 'package:byte_adventures/presentation/pages/landing_page.dart';
 import 'package:byte_adventures/presentation/pages/participants_page.dart';
 import 'package:byte_adventures/presentation/pages/tickets_page.dart';
@@ -62,83 +63,83 @@ class _PageContentState extends State<PageContent> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final windowHeight = MediaQuery.of(context).size.height;
-
-    return Scaffold(
-      body: Stack(children: [
-        PageView(
-          controller: _pageViewController,
-          onPageChanged: (newPage) {
-            setState(() {
-              _currentPage = newPage;
-            });
-          },
-          scrollDirection: Axis.vertical,
-          children: [
-            LandingPage(
-              windowHeight: windowHeight,
-              goDownCallback: () {
-                _pageViewController.animateToPage(2,
-                    duration: const Duration(milliseconds: 100), curve: Curves.easeInOut);
-              },
-            ),
-            const ParticipantsPage(),
-            const TicketsPage(),
-          ],
-        ),
-        IgnorePointer(
-          child: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.transparent, Colors.black54],
-                begin: Alignment(0.0, 0.8),
-                end: Alignment.bottomCenter,
+  Widget build(BuildContext context) => Scaffold(
+        body: Stack(children: [
+          PageView(
+            controller: _pageViewController,
+            onPageChanged: (newPage) {
+              setState(() {
+                _currentPage = newPage;
+              });
+            },
+            pageSnapping: MediaQuery.of(context).size.width < 800,
+            scrollDirection: Axis.vertical,
+            children: [
+              // AboutTheConference(),
+              LandingPage(
+                goDownCallback: () {
+                  _pageViewController.animateToPage(
+                    2,
+                    duration: const Duration(milliseconds: 100),
+                    curve: Curves.easeInOut,
+                  );
+                },
+              ),
+              const ParticipantsPage(),
+              const TicketsPage(),
+            ],
+          ),
+          IgnorePointer(
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.transparent, Colors.black54],
+                  begin: Alignment(0.0, 0.8),
+                  end: Alignment.bottomCenter,
+                ),
               ),
             ),
           ),
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_upward_outlined),
-                    enableFeedback: false,
-                    onPressed: _currentPage > 0
-                        ? () {
-                            _pageViewController.animateToPage(
-                              _pageViewController.page!.toInt() - 1,
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.decelerate,
-                            );
-                          }
-                        : null,
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.arrow_downward_outlined),
-                    onPressed: _currentPage < 2
-                        ? () {
-                            _pageViewController.animateToPage(
-                              _pageViewController.page!.toInt() + 1,
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.decelerate,
-                            );
-                          }
-                        : null,
-                  ),
-                  const Spacer(),
-                  const SocialMediaIconRow(),
-                ],
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.arrow_upward_outlined),
+                      enableFeedback: false,
+                      onPressed: _currentPage > 0
+                          ? () {
+                              _pageViewController.animateToPage(
+                                _pageViewController.page!.toInt() - 1,
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.decelerate,
+                              );
+                            }
+                          : null,
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.arrow_downward_outlined),
+                      onPressed: _currentPage < 2
+                          ? () {
+                              _pageViewController.animateToPage(
+                                _pageViewController.page!.toInt() + 1,
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.decelerate,
+                              );
+                            }
+                          : null,
+                    ),
+                    const Spacer(),
+                    const SocialMediaIconRow(),
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
-      ]),
-    );
-  }
+            ],
+          ),
+        ]),
+      );
 }
