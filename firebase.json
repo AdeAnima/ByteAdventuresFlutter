@@ -5,6 +5,7 @@
   },
   "hosting": [
     {
+      "target": "b8adventures",
       "public": "build/web",
       "ignore": [
         "firebase.json",
@@ -25,6 +26,7 @@
       ]
     },
     {
+      "target": "gather-redirect",
       "public": "gather_redirect",
       "ignore": [
         "firebase.json",
