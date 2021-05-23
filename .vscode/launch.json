@@ -8,9 +8,6 @@
             "name": "byte_adventures",
             "request": "launch",
             "type": "dart",
-            "args": [
-                "--no-sound-null-safety"
-            ]
         },
         {
             "name": "byte_adventures --release",
