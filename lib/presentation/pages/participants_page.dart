@@ -51,7 +51,7 @@ class SpeakerGallery extends StatelessWidget {
         mainAxisSpacing: windowSize.width > 740 ? 48.0 : 32,
         crossAxisCount: windowSize.height > 740 || windowSize.aspectRatio > 1.618 + 0.2 ? 2 : 1,
         childAspectRatio: 1.618,
-        cacheExtent: 2.0,
+        cacheExtent: windowSize.width * 2,
         padding: const EdgeInsets.all(60),
         scrollDirection: Axis.horizontal,
         children: participants.map((p) => ParticipantCard(participant: p)).toList(),
