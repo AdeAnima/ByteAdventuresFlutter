@@ -1,3 +1,4 @@
+import 'dart:html';
 import 'dart:math';
 
 import 'package:byte_adventures/domain/activities.dart';
@@ -320,6 +321,99 @@ class StaticSpeakerRepository implements ISpeakerRepository {
               platform: Platform.linkedIn,
             ),
           ],
+        ),
+        Participant(
+          firstName: 'Neal',
+          lastName: 'Brooks',
+          pictureUrl: Uri.file('assets/assets/images/people/neal_brooks.jpg'),
+          job: JobAtCompany(
+            title: 'Software Engineer',
+            companyName: 'Lendable',
+            companyLogo: Uri.file('assets/assets/images/people/vladyslav_cherednychenko.jpg'),
+            homepage: Uri.parse('https://www.lendable.co.uk'),
+            description: 'Bringing consumer finance into the digital world',
+          ),
+          profiles: [
+            PlatformProfile(
+              profileUrl: Uri.parse('https://www.linkedin.com/in/nealio82'),
+              platform: Platform.linkedIn,
+            ),
+            PlatformProfile(
+              profileUrl: Uri.parse('https://twitter.com/nealio82'),
+              platform: Platform.twitter,
+            ),
+          ],
+          pictureHash:
+              '|kK-LK-p.RRjnObbkCoeof~WR*I;n%RPt7W;ofofRjWBjZofbHaxjZWBWVNat7xZWBW;WBoLj[j@kWayn\$WCWVs:j[ayWBxtayWBofWVj[ofWBayoMWVays:ayWBofa|ayj[j[jsaybHf6oLj[WBkCfke.ayj[oeayWVay',
+        ),
+        Participant(
+          firstName: 'Martina',
+          lastName: 'Ivanova',
+          pictureUrl: Uri.file('assets/assets/images/people/martina_ivanova.jpg'),
+          job: JobAtCompany(
+            title: 'UI designer',
+            companyName: 'Sono Motors',
+            companyLogo: Uri.file('assets/assets/images/people/vladyslav_cherednychenko.jpg'),
+            homepage: Uri.parse('https://sonomotors.com'),
+            description: 'The first Solar Electric Vehicle. A car charging itself.',
+          ),
+          profiles: [
+            PlatformProfile(
+              profileUrl: Uri.parse('https://www.linkedin.com/in/martina-ivanova-931670a8/'),
+              platform: Platform.linkedIn,
+            ),
+            PlatformProfile(
+              profileUrl: Uri.parse('https://www.instagram.com/like.a.mo/'),
+              platform: Platform.instagram,
+            ),
+          ],
+          pictureHash:
+              '|kK-LK-p.RRjnObbkCoeof~WR*I;n%RPt7W;ofofRjWBjZofbHaxjZWBWVNat7xZWBW;WBoLj[j@kWayn\$WCWVs:j[ayWBxtayWBofWVj[ofWBayoMWVays:ayWBofa|ayj[j[jsaybHf6oLj[WBkCfke.ayj[oeayWVay',
+        ),
+        Participant(
+          firstName: 'Bozhana',
+          lastName: 'Ivanova',
+          pictureUrl: Uri.file('assets/assets/images/people/bozhana_ivanova.jpg'),
+          job: JobAtCompany(
+            title: 'Senior UX designer',
+            companyName: 'Sono Motors',
+            companyLogo: Uri.file('assets/assets/images/people/vladyslav_cherednychenko.jpg'),
+            homepage: Uri.parse('https://sonomotors.com'),
+            description: 'The first Solar Electric Vehicle. A car charging itself.',
+          ),
+          profiles: [
+            PlatformProfile(
+              profileUrl: Uri.parse('https://www.linkedin.com/in/bozhana-ivanova-ba066874/'),
+              platform: Platform.linkedIn,
+            ),
+            PlatformProfile(
+              profileUrl: Uri.parse('https://www.instagram.com/like.a.bo/'),
+              platform: Platform.instagram,
+            ),
+          ],
+          pictureHash:
+              '|kK-LK-p.RRjnObbkCoeof~WR*I;n%RPt7W;ofofRjWBjZofbHaxjZWBWVNat7xZWBW;WBoLj[j@kWayn\$WCWVs:j[ayWBxtayWBofWVj[ofWBayoMWVays:ayWBofa|ayj[j[jsaybHf6oLj[WBkCfke.ayj[oeayWVay',
+        ),
+        Participant(
+          firstName: 'Maximilian',
+          lastName: 'Berghoff',
+          pictureUrl: Uri.file('assets/assets/images/people/maximilian_berghoff.jpg'),
+          pictureAligment: const Alignment(0.15, 0.0),
+          job: JobAtCompany(
+            title: 'Senior Software Engineer',
+            companyName: 'Sono Motors',
+            companyLogo: Uri.file('assets/assets/images/people/vladyslav_cherednychenko.jpg'),
+            homepage: Uri.parse('https://sonomotors.com'),
+            description: 'The first Solar Electric Vehicle. A car charging itself.',
+          ),
+          profiles: [
+            PlatformProfile(
+              profileUrl: Uri.parse('https://www.linkedin.com/in/maximilian-berghoff-99b072161/'),
+              platform: Platform.linkedIn,
+            ),
+          ],
+          pictureHash:
+              '|kK-LK-p.RRjnObbkCoeof~WR*I;n%RPt7W;ofofRjWBjZofbHaxjZWBWVNat7xZWBW;WBoLj[j@kWayn\$WCWVs:j[ayWBxtayWBofWVj[ofWBayoMWVays:ayWBofa|ayj[j[jsaybHf6oLj[WBkCfke.ayj[oeayWVay',
         ),
       ]..shuffle(Random());
 }
