@@ -11,6 +11,17 @@ class SocialMediaIconRow extends StatelessWidget {
   Widget build(BuildContext context) => Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          // IconButton(
+          //     icon: const FaIcon(FontAwesomeIcons.discord),
+          //     iconSize: 0.7,
+          //     onPressed: () {
+          //       openURL('https://discord.gg/grpBnjRfP8');
+          //     }),
+          // IconButton(
+          //     icon: const FaIcon(FontAwesomeIcons.github),
+          //     onPressed: () {
+          //       openURL('https://github.com/AdeAnima/ByteAdventuresFlutter/');
+          //     }),
           IconButton(
               icon: const FaIcon(FontAwesomeIcons.twitterSquare),
               onPressed: () {
