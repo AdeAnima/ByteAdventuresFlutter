@@ -11,42 +11,42 @@ class SocialMediaIconRow extends StatelessWidget {
   Widget build(BuildContext context) => Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // IconButton(
-          //     icon: const FaIcon(FontAwesomeIcons.discord),
-          //     iconSize: 0.7,
-          //     onPressed: () {
-          //       openURL('https://discord.gg/grpBnjRfP8');
-          //     }),
-          // IconButton(
-          //     icon: const FaIcon(FontAwesomeIcons.github),
-          //     onPressed: () {
-          //       openURL('https://github.com/AdeAnima/ByteAdventuresFlutter/');
-          //     }),
           IconButton(
-              icon: const FaIcon(FontAwesomeIcons.twitterSquare),
-              onPressed: () {
-                openURL('https://twitter.com/byte_adventures');
-              }),
+            icon: const FaIcon(FontAwesomeIcons.discord),
+            onPressed: () {
+              openURL('https://discord.gg/grpBnjRfP8');
+            },
+          ),
           IconButton(
-              icon: const FaIcon(FontAwesomeIcons.instagramSquare),
-              onPressed: () {
-                openURL('https://www.instagram.com/byte_adventures/');
-              }),
+            icon: const FaIcon(FontAwesomeIcons.twitterSquare),
+            onPressed: () {
+              openURL('https://twitter.com/byte_adventures');
+            },
+          ),
           IconButton(
-              icon: const FaIcon(FontAwesomeIcons.linkedin),
-              onPressed: () {
-                openURL('https://www.linkedin.com/events/byteadventures-conference20216778733206616215553/');
-              }),
+            icon: const FaIcon(FontAwesomeIcons.instagramSquare),
+            onPressed: () {
+              openURL('https://www.instagram.com/byte_adventures/');
+            },
+          ),
           IconButton(
-              icon: const FaIcon(FontAwesomeIcons.spotify),
-              onPressed: () {
-                openURL('https://open.spotify.com/user/prip5qu3ak?si=1f865b0510324c21');
-              }),
+            icon: const FaIcon(FontAwesomeIcons.linkedin),
+            onPressed: () {
+              openURL('https://www.linkedin.com/events/byteadventures-conference20216778733206616215553/');
+            },
+          ),
           IconButton(
-              icon: const FaIcon(FontAwesomeIcons.envelopeSquare),
-              onPressed: () {
-                openURL('mailto:info@byte-ad.ventures');
-              }),
+            icon: const FaIcon(FontAwesomeIcons.spotify),
+            onPressed: () {
+              openURL('https://open.spotify.com/user/prip5qu3ak?si=1f865b0510324c21');
+            },
+          ),
+          IconButton(
+            icon: const FaIcon(FontAwesomeIcons.envelopeSquare),
+            onPressed: () {
+              openURL('mailto:info@byte-ad.ventures');
+            },
+          ),
         ],
       );
 }

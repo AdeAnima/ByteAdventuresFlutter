@@ -1,11 +1,15 @@
 import 'package:byte_adventures/domain/participant.dart';
-import 'package:byte_adventures/infrastructure/static_speaker_repository.dart';
 import 'package:byte_adventures/presentation/widgets/byte_overlayed_page.dart';
 import 'package:byte_adventures/presentation/widgets/participant_card.dart';
 import 'package:flutter/material.dart';
 
 class ParticipantsPage extends StatefulWidget {
-  const ParticipantsPage({Key? key}) : super(key: key);
+  final List<Participant> speakers;
+
+  const ParticipantsPage({
+    required this.speakers,
+    Key? key,
+  }) : super(key: key);
 
   @override
   _ParticipantsPageState createState() => _ParticipantsPageState();
@@ -33,16 +37,24 @@ class _ParticipantsPageState extends State<ParticipantsPage> {
             stops: const [0.0, 0.05, 0.95, 1.0],
           ),
         ),
-        child: SpeakerGallery(windowSize: windowSize),
+        child: SpeakerGallery(
+          windowSize: windowSize,
+          participants: widget.speakers,
+        ),
       ),
     );
   }
 }
 
 class SpeakerGallery extends StatelessWidget {
-  SpeakerGallery({required this.windowSize, Key? key}) : super(key: key);
+  final List<Participant> participants;
 
-  final participants = StaticSpeakerRepository().speakers;
+  const SpeakerGallery({
+    required this.windowSize,
+    required this.participants,
+    Key? key,
+  }) : super(key: key);
+
   final Size windowSize;
 
   @override

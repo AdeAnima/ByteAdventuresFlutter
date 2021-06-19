@@ -15,10 +15,11 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final windowWidth = MediaQuery.of(context).size.width;
-    final daysLeft = DateTime(2021, 6, 24).difference(DateTime.now()).inDays;
+    final windowheight = MediaQuery.of(context).size.height;
+    final daysLeft = DateTime(2021, 6, 24).difference(DateTime.now()).inDays + 1;
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
       decoration: BoxDecoration(
         color: Colors.black,
         image: DecorationImage(
@@ -29,6 +30,7 @@ class LandingPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          const SizedBox(height: 8),
           Flexible(
             flex: 3,
             child: Image.asset(
@@ -47,7 +49,6 @@ class LandingPage extends StatelessWidget {
             child: Text(
               'ByteAdventures',
               style: Theme.of(context).textTheme.headline1!.resize(context),
-              maxLines: 3,
               textAlign: TextAlign.center,
             ),
           ),
@@ -92,18 +93,21 @@ class LandingPage extends StatelessWidget {
               duration: const Duration(seconds: 1),
               alignment: Alignment(windowWidth > 1000 ? -0.75 : -0.9, windowWidth > 1000 ? 0.1 : 0.25),
               child: SizedBox(
-                height: windowWidth > 1000 ? 300 : 150,
+                height: windowWidth > 1000 && windowheight > 880 ? 300 : 150,
                 width: windowWidth > 1000 ? 300 : 150,
                 child: const MascotAnimation(),
               ),
             ),
           ),
+          const SizedBox(
+            height: 16,
+          ),
           Flexible(
             child: Text(
-              '$daysLeft Days left, get your ticket:',
+              '$daysLeft Days left, click icon to get your ticket',
               textAlign: TextAlign.center,
               maxLines: 1,
-              style: Theme.of(context).textTheme.headline2!.resize(context),
+              style: Theme.of(context).textTheme.headline3!.resize(context),
             ),
           ),
           Flexible(

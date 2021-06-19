@@ -1,5 +1,3 @@
-import 'package:byte_adventures/domain/participant.dart';
-
 class CodeLang {
   final String name;
 
@@ -11,18 +9,18 @@ class Talk {
   final CodeLang? codeLang;
   final List<String> keywords;
   final String shortAbstract;
-  final Uri pitchVideoUrl;
-  final DateTime startsAt;
-  final DateTime endsAt;
-  final List<Participant> participants;
+  // final Uri pitchVideoUrl;
+  // final DateTime startsAt;
+  // final DateTime endsAt;
+  final List<int> participants;
 
   Talk({
     required this.title,
     required this.keywords,
     required this.shortAbstract,
-    required this.pitchVideoUrl,
-    required this.startsAt,
-    required this.endsAt,
+    // required this.pitchVideoUrl,
+    // required this.startsAt,
+    // required this.endsAt,
     required this.participants,
     this.codeLang,
   });
