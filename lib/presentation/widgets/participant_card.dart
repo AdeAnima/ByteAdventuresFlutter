@@ -1,7 +1,7 @@
 import 'package:byte_adventures/domain/participant.dart';
 import 'package:byte_adventures/domain/platform_profile.dart';
 import 'package:byte_adventures/infrastructure/helpers.dart';
-import 'package:byte_adventures/main.dart';
+import 'package:byte_adventures/presentation/routes/router.dart';
 import 'package:byte_adventures/presentation/widgets/neon_decoration.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

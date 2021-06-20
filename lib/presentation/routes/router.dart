@@ -1,53 +1,60 @@
+import 'package:byte_adventures/infrastructure/static_speaker_repository.dart';
+import 'package:byte_adventures/presentation/pages/page_content.dart';
+import 'package:byte_adventures/presentation/pages/program_page.dart';
+import 'package:byte_adventures/presentation/pages/speaker_page.dart';
+
 import 'package:flutter/material.dart';
 
-class HomeRouteInformationParser extends RouteInformationParser<NavigationRoute> {
-  @override
-  Future<NavigationRoute> parseRouteInformation(RouteInformation routeInformation) async {
-    if (routeInformation.location == null) {
-      throw Exception('Unknown route info');
-    }
+class Routes {
+  static const String landing = '/';
+  static const String about = '/about';
+  static const String speakers = '/speakers';
+  static const String talks = '/talks';
+  static const String tickets = '/tickets';
+}
 
-    final uri = Uri.parse(routeInformation.location!);
-
-    if (uri.pathSegments.isEmpty) {
-      return HomeRoute();
-    }
-
-    if (uri.pathSegments.length == 1) {
-      final pathName = uri.pathSegments.elementAt(0).toString();
-      switch (pathName) {
-        case 'overview':
-          break;
-        case 'infos':
-          break;
-        case 'speakers':
-          break;
-        case 'partners':
-          break;
-        case 'team':
-          break;
-        default:
-          return HomeRoute();
+Route<dynamic>? onGenerateRoute(RouteSettings settings) {
+  final safeRouteName = settings.name ?? '/';
+  if (safeRouteName == Routes.talks) {
+    return MaterialPageRoute(
+      settings: settings,
+      builder: (context) => const ProgramPage(),
+    );
+  }
+  final speakers = StaticSpeakerRepository().speakers.values.toList();
+  final uri = Uri.parse(safeRouteName);
+  if (uri.pathSegments.length != 2) {
+    return MaterialPageRoute(
+      settings: settings,
+      builder: (context) => PageContent(initialRouteSettings: settings, speakers: speakers),
+    );
+  }
+  switch ('/${uri.pathSegments[0]}') {
+    case Routes.speakers:
+      try {
+        final speaker = speakers.firstWhere(
+          (speaker) => speaker.speakerUriEncodedName == uri.pathSegments[1],
+        );
+        return PageRouteBuilder(
+          settings: settings,
+          fullscreenDialog: true,
+          opaque: true,
+          pageBuilder: (context, a, b) => SpeakerPage(speaker: speaker),
+        );
+      } catch (e) {
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (context) => const ProgramPage(),
+        );
       }
-    }
 
-    return HomeRoute();
+    case Routes.talks:
+      break;
+    default:
   }
 
-  @override
-  RouteInformation restoreRouteInformation(NavigationRoute configuration) =>
-      RouteInformation(location: configuration.route);
-}
-
-abstract class NavigationRoute {
-  int get pageIndex;
-  String get route;
-}
-
-class HomeRoute extends NavigationRoute {
-  @override
-  int get pageIndex => 0;
-
-  @override
-  String get route => '/';
+  return MaterialPageRoute(
+    settings: settings,
+    builder: (context) => PageContent(initialRouteSettings: settings, speakers: speakers),
+  );
 }

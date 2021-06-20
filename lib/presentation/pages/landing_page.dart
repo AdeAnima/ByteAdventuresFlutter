@@ -1,4 +1,5 @@
 import 'package:byte_adventures/generated/l10n.dart';
+import 'package:byte_adventures/infrastructure/helpers.dart';
 import 'package:byte_adventures/presentation/helpers/size_sensitive_textstyle.dart';
 import 'package:byte_adventures/presentation/widgets/mascot_animation.dart';
 import 'package:flutter/material.dart';
@@ -101,6 +102,20 @@ class LandingPage extends StatelessWidget {
           ),
           const SizedBox(
             height: 16,
+          ),
+          OutlinedButton.icon(
+            onPressed: () {
+              openURL(
+                  'https://docs.google.com/spreadsheets/d/e/2PACX-1vSkiIaO3QtUQ5scQphPs5UKqI9ENs2M1T1Ak6yEfCeOzTukb0duTQrKtwk0GlqB2wKK-Ap9nKDrGXub/pubhtml?gid=358977194&single=true');
+            },
+            icon: Icon(
+              Icons.list_alt_outlined,
+              color: Theme.of(context).accentColor,
+            ),
+            label: Text(
+              'Program',
+              style: Theme.of(context).textTheme.headline6,
+            ),
           ),
           Flexible(
             child: Text(
