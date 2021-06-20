@@ -44,27 +44,27 @@ class StaticSpeakerRepository implements ISpeakerRepository {
             description: 'Show what you stand for!',
           ),
         ),
-        2: Participant(
-          firstName: 'Alexander',
-          lastName: 'Jaeger',
-          pictureUrl: Uri.parse(
-              'https://firebasestorage.googleapis.com/v0/b/b8adventures.appspot.com/o/participants%2Falexander_jaeger.jpeg?alt=media&token=eff9d90a-80b0-4929-8a2b-265e48a0ed21'),
-          pictureHash:
-              '|pLNS%flpIxui_ogayayoz~Wazo#bHWBf6V@WBfkNdj[aJf6bbayj]a}jZNHofs:j[j[WBkCkCf5t7fkjsayRjayofj[jsWVj[j[j@WVayofj[ayt6j[WBaykCWBofj[WBofayo1f6WBayj[j[f6t7ofWBayoeoLazj[j[',
-          profiles: [
-            PlatformProfile(
-              profileUrl: Uri.parse('https://www.linkedin.com/in/lxhunter/'),
-              platform: Platform.linkedIn,
-            ),
-          ],
-          job: JobAtCompany(
-            title: 'CEO',
-            companyName: 'THE FITTEST',
-            companyLogo: Uri.parse('https://the-fittest.de/wp-content/uploads/2020/06/cropped-logo-2.png'),
-            homepage: Uri.parse('https://the-fittest.de'),
-            description: 'WE ARE TECH!',
-          ),
-        ),
+        // 2: Participant(
+        //   firstName: 'Alexander',
+        //   lastName: 'Jaeger',
+        //   pictureUrl: Uri.parse(
+        //       'https://firebasestorage.googleapis.com/v0/b/b8adventures.appspot.com/o/participants%2Falexander_jaeger.jpeg?alt=media&token=eff9d90a-80b0-4929-8a2b-265e48a0ed21'),
+        //   pictureHash:
+        //       '|pLNS%flpIxui_ogayayoz~Wazo#bHWBf6V@WBfkNdj[aJf6bbayj]a}jZNHofs:j[j[WBkCkCf5t7fkjsayRjayofj[jsWVj[j[j@WVayofj[ayt6j[WBaykCWBofj[WBofayo1f6WBayj[j[f6t7ofWBayoeoLazj[j[',
+        //   profiles: [
+        //     PlatformProfile(
+        //       profileUrl: Uri.parse('https://www.linkedin.com/in/lxhunter/'),
+        //       platform: Platform.linkedIn,
+        //     ),
+        //   ],
+        //   job: JobAtCompany(
+        //     title: 'CEO',
+        //     companyName: 'THE FITTEST',
+        //     companyLogo: Uri.parse('https://the-fittest.de/wp-content/uploads/2020/06/cropped-logo-2.png'),
+        //     homepage: Uri.parse('https://the-fittest.de'),
+        //     description: 'WE ARE TECH!',
+        //   ),
+        // ),
         3: Participant(
           firstName: 'Aya',
           lastName: 'Jaff',
@@ -85,24 +85,24 @@ class StaticSpeakerRepository implements ISpeakerRepository {
             PlatformProfile(profileUrl: Uri.parse('https://www.instagram.com/ayajaff/'), platform: Platform.instagram),
           ],
         ),
-        4: Participant(
-          firstName: 'Chris',
-          lastName: 'Springer',
-          shortBio:
-              'Christoph Spinger is co-founder of VR-Nerds, which has been working with VR glasses and software since 2013. He is currently working on the further development of VR-Nerds.de and on an Oculus Quest port of Tower Tag.',
-          pictureUrl: Uri.parse(
-              'https://firebasestorage.googleapis.com/v0/b/b8adventures.appspot.com/o/participants%2Fchristoph_spinger.jpg?alt=media&token=989c9c25-ab9b-4e06-b7bc-ac9b8591e125'),
-          pictureHash:
-              '|MK^vpo~Tx-pVs_2NG%LSO={Rj%LxZR*t7RjflfO_Moen3WEW=9Zt7M{WA-oxuIpM{s:M|t7ofogx]M{RjRjWUsoaeW;oLxZj[V[R+t7WUt6s.j[nOofIpWBxat7a#bIWBV@V@oyozofxaV[R*WCE2j[%2xaWVWBR*jbof',
-          pictureAligment: const Alignment(-0.4, 0.0),
-          job: JobAtCompany(
-              title: 'Cofounder',
-              companyName: 'VR Nerds',
-              companyLogo: Uri.parse(''),
-              homepage: Uri.parse('https://www.vrnerds.de'),
-              description: 'A VIRTUAL REALITY SHOWCASE'),
-          profiles: [],
-        ),
+        // 4: Participant(
+        //   firstName: 'Chris',
+        //   lastName: 'Springer',
+        //   shortBio:
+        //       'Christoph Spinger is co-founder of VR-Nerds, which has been working with VR glasses and software since 2013. He is currently working on the further development of VR-Nerds.de and on an Oculus Quest port of Tower Tag.',
+        //   pictureUrl: Uri.parse(
+        //       'https://firebasestorage.googleapis.com/v0/b/b8adventures.appspot.com/o/participants%2Fchristoph_spinger.jpg?alt=media&token=989c9c25-ab9b-4e06-b7bc-ac9b8591e125'),
+        //   pictureHash:
+        //       '|MK^vpo~Tx-pVs_2NG%LSO={Rj%LxZR*t7RjflfO_Moen3WEW=9Zt7M{WA-oxuIpM{s:M|t7ofogx]M{RjRjWUsoaeW;oLxZj[V[R+t7WUt6s.j[nOofIpWBxat7a#bIWBV@V@oyozofxaV[R*WCE2j[%2xaWVWBR*jbof',
+        //   pictureAligment: const Alignment(-0.4, 0.0),
+        //   job: JobAtCompany(
+        //       title: 'Cofounder',
+        //       companyName: 'VR Nerds',
+        //       companyLogo: Uri.parse(''),
+        //       homepage: Uri.parse('https://www.vrnerds.de'),
+        //       description: 'A VIRTUAL REALITY SHOWCASE'),
+        //   profiles: [],
+        // ),
         5: Participant(
           firstName: 'Ellen',
           lastName: 'Schwartau',

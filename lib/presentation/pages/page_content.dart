@@ -95,7 +95,6 @@ class _PageContentState extends State<PageContent> {
           pageSnapping: width < 800,
           scrollDirection: Axis.vertical,
           children: [
-            // AboutTheConference(),
             LandingPage(
               goDownCallback: () {
                 _pageViewController.animateToPage(
