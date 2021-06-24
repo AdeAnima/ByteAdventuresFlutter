@@ -65,26 +65,26 @@ class StaticSpeakerRepository implements ISpeakerRepository {
         //     description: 'WE ARE TECH!',
         //   ),
         // ),
-        3: Participant(
-          firstName: 'Aya',
-          lastName: 'Jaff',
-          pictureUrl: Uri.parse('assets/assets/images/people/aya_jaff.jpg'),
-          shortBio:
-              'Forbes30under30 entrepreneur with a passion for tech and finance. I\'ve worked as a software developer for various startups and companies (e.g. Hyperloop) in the Bay area. My book "Moneymakers" [SPIEGEL BESTSELLER] sums up my experience building the biggest social stock market game in Germany and explains Wall Street as simple as possible.',
-          pictureHash:
-              '|fL-;gt7}aNas.jZWBxZs:].son%bHNaofWVWBoL=|flJ7oLR*WBs:S2oLI:R*WVoLxGoLs:fkR*\$+f6WUjuWWofW.R*R*WVs:oLWVoLR*WUoLoMspR*R*bHoLoLoLsoayWCofoff6aef6bHa}ays.aeWCs:s:WVR*a{oL',
-          job: JobAtCompany(
-              title: 'Founder & Author',
-              companyName: 'Aya Jaff',
-              companyLogo: Uri.parse(''),
-              homepage: Uri.parse('https://www.ayajaff.com'),
-              description: 'Let\'s talk social change, tech, sustainability and politics.'),
-          profiles: [
-            PlatformProfile(profileUrl: Uri.parse('https://www.linkedin.com/in/ayajaff/'), platform: Platform.linkedIn),
-            PlatformProfile(profileUrl: Uri.parse('https://twitter.com/ayadoingthings'), platform: Platform.twitter),
-            PlatformProfile(profileUrl: Uri.parse('https://www.instagram.com/ayajaff/'), platform: Platform.instagram),
-          ],
-        ),
+        // 3: Participant(
+        //   firstName: 'Aya',
+        //   lastName: 'Jaff',
+        //   pictureUrl: Uri.parse('assets/assets/images/people/aya_jaff.jpg'),
+        //   shortBio:
+        //       'Forbes30under30 entrepreneur with a passion for tech and finance. I\'ve worked as a software developer for various startups and companies (e.g. Hyperloop) in the Bay area. My book "Moneymakers" [SPIEGEL BESTSELLER] sums up my experience building the biggest social stock market game in Germany and explains Wall Street as simple as possible.',
+        //   pictureHash:
+        //       '|fL-;gt7}aNas.jZWBxZs:].son%bHNaofWVWBoL=|flJ7oLR*WBs:S2oLI:R*WVoLxGoLs:fkR*\$+f6WUjuWWofW.R*R*WVs:oLWVoLR*WUoLoMspR*R*bHoLoLoLsoayWCofoff6aef6bHa}ays.aeWCs:s:WVR*a{oL',
+        //   job: JobAtCompany(
+        //       title: 'Founder & Author',
+        //       companyName: 'Aya Jaff',
+        //       companyLogo: Uri.parse(''),
+        //       homepage: Uri.parse('https://www.ayajaff.com'),
+        //       description: 'Let\'s talk social change, tech, sustainability and politics.'),
+        //   profiles: [
+        //     PlatformProfile(profileUrl: Uri.parse('https://www.linkedin.com/in/ayajaff/'), platform: Platform.linkedIn),
+        //     PlatformProfile(profileUrl: Uri.parse('https://twitter.com/ayadoingthings'), platform: Platform.twitter),
+        //     PlatformProfile(profileUrl: Uri.parse('https://www.instagram.com/ayajaff/'), platform: Platform.instagram),
+        //   ],
+        // ),
         // 4: Participant(
         //   firstName: 'Chris',
         //   lastName: 'Springer',
